@@ -2,661 +2,1510 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta
         name="description"
-        content="Bikram Dhamala portfolio - UI/UX designer, frontend developer, and education-sector professional."
+        content="Bikram Dhamala — UI/UX Designer and Frontend Developer Portfolio"
     >
+
     <meta name="author" content="Bikram Dhamala">
-    <title>Bikram Dhamala | UI/UX Portfolio</title>
+
+    <title>Bikram Dhamala | UI/UX Designer & Frontend Developer</title>
+
+    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
         rel="stylesheet"
     >
-    <link rel="stylesheet" href="bikram-portfolio-style.css">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header class="site-header" id="header">
-        <div class="container nav-shell">
-            <a class="brand" href="#home">
-                <span class="brand-mark">BD</span>
-                <span class="brand-copy">
-                    Bikram Dhamala
-                    <small>UI/UX Designer and Frontend Developer</small>
-                </span>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header" id="header">
+
+        <nav class="navbar container">
+
+            <a href="#home" class="logo">
+                <span>B</span>D.
             </a>
 
-            <nav class="nav-menu" id="navMenu" aria-label="Primary">
-                <a class="nav-link active" href="#home">Home</a>
-                <a class="nav-link" href="#about">About</a>
-                <a class="nav-link" href="#focus">Focus</a>
-                <a class="nav-link" href="#projects">Projects</a>
-                <a class="nav-link" href="#experience">Experience</a>
-                <a class="nav-link" href="#contact">Contact</a>
-            </nav>
+            <div class="nav-menu" id="navMenu">
+
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#contact" class="nav-link">Contact</a>
+
+            </div>
 
             <div class="nav-actions">
-                <a class="header-link" href="#contact">Let's Connect</a>
+
                 <button
-                    class="menu-toggle"
-                    id="menuBtn"
-                    type="button"
-                    aria-expanded="false"
-                    aria-controls="navMenu"
-                    aria-label="Toggle menu"
+                    class="theme-btn"
+                    id="themeBtn"
+                    aria-label="Toggle theme"
                 >
-                    <span></span>
-                    <span></span>
-                    <span></span>
+                    <i class="fa-solid fa-moon"></i>
                 </button>
+
+                <button
+                    class="menu-btn"
+                    id="menuBtn"
+                    aria-label="Open menu"
+                >
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
             </div>
-        </div>
+
+        </nav>
+
     </header>
 
+
     <main>
-        <section class="hero" id="home">
+
+        <!-- ================= HERO ================= -->
+
+        <section class="hero section" id="home">
+
+            <div class="hero-bg-circle circle-one"></div>
+            <div class="hero-bg-circle circle-two"></div>
+
             <div class="container hero-grid">
-                <div class="hero-copy reveal">
-                    <span class="eyebrow">Natural, polished, and UI/UX-centered</span>
-                    <h1>
-                        Designing calm digital experiences for
-                        <span>classrooms, products, and people.</span>
-                    </h1>
-                    <p class="hero-text">
-                        I design and build interfaces that feel clear, modern, and easy to trust.
-                        My work combines UI/UX thinking, frontend development, and people-focused
-                        communication from the education sector.
+
+                <div class="hero-content reveal">
+
+                    <div class="available">
+                        <span></span>
+                        Available for opportunities
+                    </div>
+
+                    <p class="hero-small">
+                        HELLO, I'M
                     </p>
 
-                    <div class="hero-pills">
-                        <span>Classroom Management System</span>
-                        <span>UI/UX Design</span>
-                        <span>Frontend Development</span>
-                        <span>Education and Admissions</span>
+                    <h1>
+                        Bikram
+                        <span>Dhamala</span>
+                    </h1>
+
+                    <h2>
+                        UI/UX Designer
+                        <span>&</span>
+                        Frontend Developer
+                    </h2>
+
+                    <p class="hero-description">
+                        I create clean, modern and user-friendly digital
+                        experiences by combining creative design with
+                        modern frontend technologies.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+
                     </div>
 
-                    <div class="hero-actions">
-                        <a class="btn btn-primary" href="#projects">View My Work</a>
-                        <a class="btn btn-secondary" href="#experience">See Experience</a>
+                    <div class="social-links">
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            aria-label="GitHub"
+                        >
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/biksss-dhamala"
+                            target="_blank"
+                            aria-label="LinkedIn"
+                        >
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+
+                        <a
+                            href="mailto:your@email.com"
+                            aria-label="Email"
+                        >
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+
                     </div>
 
-                    <div class="hero-highlights">
-                        <article class="mini-stat">
-                            <strong>Current Role</strong>
-                            <span>Admission Manager at Aurora Education Foundation Pvt. Ltd</span>
-                        </article>
-                        <article class="mini-stat">
-                            <strong>Leadership</strong>
-                            <span>Managing Director at Bonsai Technology</span>
-                        </article>
-                        <article class="mini-stat">
-                            <strong>Study</strong>
-                            <span>Bachelor of Computer Applications with a design-first approach</span>
-                        </article>
-                    </div>
                 </div>
 
-                <div class="identity-stage reveal">
-                    <div class="identity-card">
-                        <div class="identity-grid">
-                            <article class="portrait-card">
-                                <div class="card-head">
-                                    <div>
-                                        <span class="card-kicker">Profile</span>
-                                        <h3>Your Photo</h3>
-                                    </div>
-                                    <small>Personalize the hero section</small>
-                                </div>
 
-                                <div class="portrait-shell">
-                                    <img
-                                        id="profilePreview"
-                                        class="media-preview"
-                                        alt="Profile photo preview"
-                                        hidden
-                                    >
-                                    <div class="media-placeholder" id="profilePlaceholder">
-                                        <span>BD</span>
-                                        <strong>Add your portrait</strong>
-                                        <small>Use a clean professional photo</small>
-                                    </div>
-                                </div>
+                <div class="hero-visual reveal">
 
-                                <div class="upload-actions">
-                                    <label class="ghost-btn" for="profileUpload">Upload Photo</label>
-                                    <button class="text-button" type="button" data-clear-target="profile">Clear</button>
-                                </div>
-                                <input
-                                    class="visually-hidden"
-                                    id="profileUpload"
-                                    type="file"
-                                    accept="image/*"
-                                >
-                            </article>
+                    <div class="profile-card">
 
-                            <article class="ux-card">
-                                <div class="card-head">
-                                    <div>
-                                        <span class="card-kicker">UI/UX Direction</span>
-                                        <h3>Why this version feels better</h3>
-                                    </div>
-                                </div>
+                        <div class="profile-glow"></div>
 
-                                <ul class="focus-list">
-                                    <li>Softer natural colors with stronger contrast.</li>
-                                    <li>More space, cleaner typography, and better visual rhythm.</li>
-                                    <li>Classroom and UI/UX work presented in the same design system.</li>
-                                    <li>A more personal identity with photo and logo support built in.</li>
-                                </ul>
-                            </article>
+                        <div class="profile-placeholder">
+                            <i class="fa-solid fa-user"></i>
                         </div>
 
-                        <div class="brand-strip">
-                            <article class="brand-card">
-                                <div class="brand-media">
-                                    <img
-                                        id="auroraPreview"
-                                        class="media-preview"
-                                        alt="Aurora Education Foundation logo preview"
-                                        hidden
-                                    >
-                                    <div class="brand-placeholder aurora" id="auroraPlaceholder">
-                                        <span>AEF</span>
-                                    </div>
-                                </div>
-
-                                <div class="brand-copy">
-                                    <strong>Aurora Education Foundation Pvt. Ltd</strong>
-                                    <small>Current workplace logo area</small>
-                                </div>
-
-                                <div class="upload-actions compact">
-                                    <label class="ghost-btn small" for="auroraUpload">Upload Logo</label>
-                                    <button class="text-button small" type="button" data-clear-target="aurora">Clear</button>
-                                </div>
-                                <input
-                                    class="visually-hidden"
-                                    id="auroraUpload"
-                                    type="file"
-                                    accept="image/*"
-                                >
-                            </article>
-
-                            <article class="brand-card">
-                                <div class="brand-media">
-                                    <img
-                                        id="bonsaiPreview"
-                                        class="media-preview"
-                                        alt="Bonsai Technology logo preview"
-                                        hidden
-                                    >
-                                    <div class="brand-placeholder bonsai" id="bonsaiPlaceholder">
-                                        <span>BT</span>
-                                    </div>
-                                </div>
-
-                                <div class="brand-copy">
-                                    <strong>Bonsai Technology</strong>
-                                    <small>Leadership brand logo area</small>
-                                </div>
-
-                                <div class="upload-actions compact">
-                                    <label class="ghost-btn small" for="bonsaiUpload">Upload Logo</label>
-                                    <button class="text-button small" type="button" data-clear-target="bonsai">Clear</button>
-                                </div>
-                                <input
-                                    class="visually-hidden"
-                                    id="bonsaiUpload"
-                                    type="file"
-                                    accept="image/*"
-                                >
-                            </article>
+                        <div class="floating-card card-design">
+                            <i class="fa-brands fa-figma"></i>
+                            <div>
+                                <strong>UI/UX</strong>
+                                <small>Design</small>
+                            </div>
                         </div>
 
-                        <p class="identity-note">
-                            Photo and logo uploads are remembered in this browser for quick preview.
-                            When you have final image files, they can also be permanently added later.
-                        </p>
+                        <div class="floating-card card-code">
+                            <i class="fa-solid fa-code"></i>
+                            <div>
+                                <strong>Frontend</strong>
+                                <small>Development</small>
+                            </div>
+                        </div>
+
                     </div>
+
                 </div>
+
             </div>
+
+            <div class="scroll-down">
+                <span>Scroll to explore</span>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+
         </section>
+
+
+        <!-- ================= ABOUT ================= -->
 
         <section class="section about" id="about">
-            <div class="container split-grid">
-                <div class="copy-block reveal">
-                    <span class="section-kicker">About</span>
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <p class="section-label">ABOUT ME</p>
+
                     <h2>
-                        A more natural digital identity for
-                        <span>your professional story.</span>
+                        Turning ideas into
+                        <span>digital experiences.</span>
                     </h2>
-                    <p class="lead">
-                        I enjoy turning ideas into interfaces that feel organized, attractive,
-                        and genuinely useful to the people who use them.
-                    </p>
-                    <p>
-                        This updated version of your website is designed to feel more human and more
-                        refined. The palette is softer, the sections feel calmer, and the content now
-                        presents both your design work and your professional roles with better balance.
-                    </p>
-                    <p>
-                        Along with UI/UX and frontend work, your experience in admissions and leadership
-                        adds a stronger professional layer to the portfolio and makes the website feel
-                        more complete.
-                    </p>
+
                 </div>
 
-                <div class="value-grid reveal">
-                    <article class="value-card">
-                        <strong>Clear presentation</strong>
-                        <p>Cleaner wording and better hierarchy help the website feel more trustworthy.</p>
-                    </article>
-                    <article class="value-card">
-                        <strong>Natural color balance</strong>
-                        <p>Warm neutrals, pine green, and clay accents make the page feel calm and premium.</p>
-                    </article>
-                    <article class="value-card">
-                        <strong>Unified design language</strong>
-                        <p>Classroom and UI/UX sections now follow one consistent visual system.</p>
-                    </article>
-                    <article class="value-card">
-                        <strong>Personal branding</strong>
-                        <p>Your photo and both company logos now have dedicated spaces in the layout.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+                <div class="about-grid">
 
-        <section class="section focus" id="focus">
-            <div class="container">
-                <div class="section-head center reveal">
-                    <span class="section-kicker">Design Focus</span>
-                    <h2>Built with a stronger <span>UI/UX point of view.</span></h2>
-                    <p>
-                        Beyond looks, the page now pays more attention to flow, readability, consistency,
-                        and how each section supports your personal brand.
-                    </p>
-                </div>
+                    <div class="about-text reveal">
 
-                <div class="focus-grid">
-                    <article class="focus-card reveal">
-                        <span class="focus-no">01</span>
-                        <h3>Classroom UX</h3>
-                        <p>Education products need simple navigation, clean dashboards, and calm structure.</p>
-                    </article>
-                    <article class="focus-card reveal">
-                        <span class="focus-no">02</span>
-                        <h3>Visual hierarchy</h3>
-                        <p>Typography, spacing, and content blocks are arranged to feel guided and easy to scan.</p>
-                    </article>
-                    <article class="focus-card reveal">
-                        <span class="focus-no">03</span>
-                        <h3>Consistent components</h3>
-                        <p>Buttons, cards, tags, and panels now share one coherent language across the site.</p>
-                    </article>
-                    <article class="focus-card reveal">
-                        <span class="focus-no">04</span>
-                        <h3>Personal identity</h3>
-                        <p>The design now feels more like a real portfolio and less like a generic template.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
+                        <p class="lead">
+                            I am a BCA student passionate about UI/UX design,
+                            frontend development and graphic design.
+                        </p>
 
-        <section class="section projects" id="projects">
-            <div class="container">
-                <div class="section-head reveal">
-                    <div>
-                        <span class="section-kicker">Selected Work</span>
-                        <h2>Projects presented with a <span>cleaner case-study feel.</span></h2>
-                    </div>
-                    <p>
-                        These cards keep your information, but now present it in a way that feels more
-                        thoughtful, more attractive, and more aligned with UI/UX portfolio standards.
-                    </p>
-                </div>
+                        <p>
+                            I enjoy transforming ideas into modern,
+                            responsive and user-friendly digital products.
+                            My goal is to build interfaces that are not only
+                            visually attractive but also simple and enjoyable
+                            to use.
+                        </p>
 
-                <div class="filter-row reveal">
-                    <button class="filter-btn active" type="button" data-filter="all">All</button>
-                    <button class="filter-btn" type="button" data-filter="classroom">Classroom</button>
-                    <button class="filter-btn" type="button" data-filter="ux">UI/UX</button>
-                    <button class="filter-btn" type="button" data-filter="web">Web</button>
-                </div>
+                        <p>
+                            I continuously improve my skills by creating
+                            real-world projects and exploring new technologies
+                            in web development and digital design.
+                        </p>
 
-                <div class="project-list">
-                    <article class="project-card reveal" data-category="classroom">
-                        <div class="project-visual classroom">
-                            <div class="mock-window">
-                                <div class="mock-top">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <div class="mock-body">
-                                    <div class="mock-sidebar"></div>
-                                    <div class="mock-main">
-                                        <div class="mock-panel wide"></div>
-                                        <div class="mock-grid">
-                                            <div class="mock-panel"></div>
-                                            <div class="mock-panel"></div>
-                                        </div>
-                                        <div class="mock-lines">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="about-buttons">
+
+                            <a href="#contact" class="text-link">
+                                Let's work together
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+
                         </div>
 
-                        <div class="project-copy">
-                            <span class="project-label">Classroom Product</span>
-                            <h3>Classroom Management System</h3>
-                            <p>
-                                A classroom-focused web platform built for organized academic workflows,
-                                cleaner navigation, and a more guided student and teacher experience.
-                            </p>
-                            <div class="project-notes">
-                                <div>Rewritten to reflect the real project instead of the old e-commerce description.</div>
-                                <div>Presented with the same UI system as your design work for better consistency.</div>
+                    </div>
+
+
+                    <div class="about-stats reveal">
+
+                        <div class="stat-card">
+                            <strong>01</strong>
+                            <span>UI/UX Design</span>
+                        </div>
+
+                        <div class="stat-card">
+                            <strong>02</strong>
+                            <span>Frontend Development</span>
+                        </div>
+
+                        <div class="stat-card">
+                            <strong>03</strong>
+                            <span>Graphic Design</span>
+                        </div>
+
+                        <div class="stat-card">
+                            <strong>04</strong>
+                            <span>Responsive Websites</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section class="section skills-section" id="skills">
+
+            <div class="container">
+
+                <div class="section-heading center reveal">
+
+                    <p class="section-label">MY SKILLS</p>
+
+                    <h2>
+                        Tools I use to
+                        <span>build ideas.</span>
+                    </h2>
+
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon html">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <h3>HTML5</h3>
+                        <p>Semantic & accessible web structure</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon css">
+                            <i class="fa-brands fa-css3-alt"></i>
+                        </div>
+                        <h3>CSS3</h3>
+                        <p>Modern responsive interfaces</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon js">
+                            <i class="fa-brands fa-js"></i>
+                        </div>
+                        <h3>JavaScript</h3>
+                        <p>Interactive web functionality</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon figma">
+                            <i class="fa-brands fa-figma"></i>
+                        </div>
+                        <h3>Figma</h3>
+                        <p>UI/UX design & prototyping</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon firebase">
+                            <i class="fa-solid fa-fire"></i>
+                        </div>
+                        <h3>Firebase</h3>
+                        <p>Authentication & database</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon git">
+                            <i class="fa-brands fa-github"></i>
+                        </div>
+                        <h3>Git / GitHub</h3>
+                        <p>Version control & collaboration</p>
+                    </div>
+
+                    <div class="skill-card reveal">
+                        <div class="skill-icon responsive">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3>Responsive Design</h3>
+                        <p>Desktop, tablet & mobile</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section class="section projects" id="projects">
+
+            <div class="container">
+
+                <div class="section-heading reveal">
+
+                    <p class="section-label">FEATURED PROJECTS</p>
+
+                    <h2>
+                        Some things I've
+                        <span>built.</span>
+                    </h2>
+
+                    <p>
+                        A selection of projects combining design,
+                        development and problem solving.
+                    </p>
+
+                </div>
+
+
+                <div class="filter-buttons reveal">
+
+                    <button class="filter-btn active" data-filter="all">
+                        All
+                    </button>
+
+                    <button class="filter-btn" data-filter="web">
+                        Web
+                    </button>
+
+                    <button class="filter-btn" data-filter="design">
+                        UI/UX
+                    </button>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <!-- PROJECT 1 -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="web"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/clickcart.jpg"
+                                alt="ClickCart e-commerce website"
+                            >
+
+                            <div class="project-overlay">
+
+                                <a
+                                    href="https://classroomos.onrender.com/login?callbackUrl=%2F"
+                                    aria-label="View ClickCart project"
+                                >
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+
                             </div>
-                            <div class="tag-row">
+
+                            <span class="project-number">01</span>
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-type">
+                             Classroom Management System
+                            </span>
+
+                            <h3>Classroom </h3>
+
+                            <p>
+                                A modern Nepal-focused e-commerce platform
+                                designed for a smooth and responsive shopping
+                                experience.
+                            </p>
+
+                            <div class="tech-tags">
                                 <span>HTML</span>
                                 <span>CSS</span>
                                 <span>JavaScript</span>
                                 <span>Firebase</span>
                             </div>
-                            <div class="action-row">
-                                <a
-                                    class="text-link"
-                                    href="https://classroomos.onrender.com/login?callbackUrl=%2F"
-                                    target="_blank"
-                                    rel="noreferrer"
-                                >
+
+                            <div class="project-links">
+
+                                <a href="https://classroomos.onrender.com/login?callbackUrl=%2F" class="text-link">
                                     Live Demo
+                                    <i class="fa-solid fa-arrow-right"></i>
                                 </a>
+
+                                <a href="#" class="text-link">
+                                    GitHub
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+
                             </div>
+
                         </div>
+
                     </article>
 
-                    <article class="project-card reveal" data-category="ux">
-                        <div class="project-visual ux">
-                            <div class="mock-window">
-                                <div class="mock-top">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <div class="ux-layout">
-                                    <div class="ux-screen">
-                                        <div class="ux-header"></div>
-                                        <div class="ux-card-row">
-                                            <div class="ux-card"></div>
-                                            <div class="ux-card"></div>
-                                        </div>
-                                    </div>
-                                    <div class="ux-screen narrow">
-                                        <div class="ux-header"></div>
-                                        <div class="ux-list">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                        </div>
-                                    </div>
-                                </div>
+
+                    <!-- PROJECT 2 -->
+
+                   
+
+
+                    <!-- PROJECT 3 -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="web"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/anveshan.jpg"
+                                alt="Anveshan digital services website"
+                            >
+
+                            <div class="project-overlay">
+
+                                <a
+                                    href="#"
+                                    aria-label="View Anveshan project"
+                                >
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+
                             </div>
+
+                            <span class="project-number">03</span>
+
                         </div>
 
-                        <div class="project-copy">
-                            <span class="project-label">UI/UX Design</span>
-                            <h3>Figma UI/UX Design Collection</h3>
+                        <div class="project-content">
+
+                            <span class="project-type">
+                                Information Technology
+                            </span>
+
+                            <h3>Bonsai Technology</h3>
+
                             <p>
-                                A collection of interface concepts, layout studies, and interactive ideas
-                                presented with a more complete case-study approach and stronger visual harmony.
+                                A digital and creative services platform
+                                focused on modern web and creative solutions.
                             </p>
-                            <div class="project-notes">
-                                <div>Now feels closely connected to the Classroom project instead of looking separate.</div>
-                                <div>Better emphasis on interface clarity, structure, and modern design thinking.</div>
+
+                            <div class="tech-tags">
+                                <span>HTML</span>
+                                <span>CSS</span>
+                                <span>JavaScript</span>
                             </div>
-                            <div class="tag-row">
+
+                            <div class="project-links">
+
+                                <a href="#" class="text-link">
+                                    Live Demo
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                                <a href="#" class="text-link">
+                                    GitHub
+                                    <i class="fa-brands fa-github"></i>
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- PROJECT 4 -->
+
+                    <article
+                        class="project-card reveal"
+                        data-category="design"
+                    >
+
+                        <div class="project-image">
+
+                            <img
+                                src="assets/ui-project.jpg"
+                                alt="Figma UI UX project"
+                            >
+
+                            <div class="project-overlay">
+
+                                <a
+                                    href="#"
+                                    aria-label="View UI UX project"
+                                >
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+
+                            </div>
+
+                            <span class="project-number">04</span>
+
+                        </div>
+
+                        <div class="project-content">
+
+                            <span class="project-type">
+                                UI / UX DESIGN
+                            </span>
+
+                            <h3>Figma UI Projects</h3>
+
+                            <p>
+                                A collection of modern interface designs,
+                                wireframes and interactive prototypes created
+                                in Figma.
+                            </p>
+
+                            <div class="tech-tags">
                                 <span>Figma</span>
-                                <span>Wireframes</span>
+                                <span>UI/UX</span>
                                 <span>Prototype</span>
-                                <span>Design System</span>
                             </div>
-                        </div>
-                    </article>
 
-                    <article class="project-card reveal" data-category="web">
-                        <div class="project-visual web">
-                            <div class="mock-window">
-                                <div class="mock-top">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <div class="web-layout">
-                                    <div class="hero-band"></div>
-                                    <div class="web-grid">
-                                        <div class="web-card tall"></div>
-                                        <div class="web-card"></div>
-                                        <div class="web-card"></div>
-                                    </div>
-                                </div>
+                            <div class="project-links">
+
+                                <a href="#" class="text-link">
+                                    Case Study
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+
+                                <a href="#" class="text-link">
+                                    Figma
+                                    <i class="fa-brands fa-figma"></i>
+                                </a>
+
                             </div>
+
                         </div>
 
-                        <div class="project-copy">
-                            <span class="project-label">Responsive Web Work</span>
-                            <h3>Responsive Web Interfaces</h3>
-                            <p>
-                                A broader collection of personal and academic builds focused on structure,
-                                responsiveness, content presentation, and polished frontend implementation.
-                            </p>
-                            <div class="project-notes">
-                                <div>Replaces the earlier repeated company-style project entry with a more balanced showcase.</div>
-                                <div>Keeps the website focused on your real design and frontend strengths.</div>
-                            </div>
-                            <div class="tag-row">
-                                <span>Responsive Design</span>
-                                <span>Web Layout</span>
-                                <span>Frontend UI</span>
-                                <span>Creative Presentation</span>
-                            </div>
-                        </div>
                     </article>
+
                 </div>
+
             </div>
+
         </section>
 
-        <section class="section experience" id="experience">
-            <div class="container experience-grid">
-                <div class="experience-side reveal">
-                    <span class="section-kicker">Experience</span>
-                    <h2>Technical growth supported by <span>real professional roles.</span></h2>
-                    <p>
-                        Your experience section now feels stronger because it combines design,
-                        development, education-sector work, and leadership in one clear story.
-                    </p>
 
-                    <div class="experience-badges">
-                        <div class="experience-badge">
-                            <strong>Aurora Education Foundation Pvt. Ltd</strong>
-                            <span>Admission Manager</span>
-                        </div>
-                        <div class="experience-badge">
-                            <strong>Bonsai Technology</strong>
-                            <span>Managing Director</span>
-                        </div>
-                    </div>
+        <!-- ================= EXPERIENCE ================= -->
+
+        <section class="section experience" id="experience">
+
+            <div class="container">
+
+                <div class="section-heading center reveal">
+
+                    <p class="section-label">MY JOURNEY</p>
+
+                    <h2>
+                        Education &
+                        <span>Experience.</span>
+                    </h2>
+
                 </div>
 
                 <div class="timeline">
-                    <article class="timeline-item reveal">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-card">
-                            <span class="timeline-date">July 2025 - Present</span>
-                            <h3>Aurora Education Foundation Pvt. Ltd</h3>
-                            <h4>Admission Manager</h4>
-                            <p>
-                                Managing admissions communication, supporting student guidance,
-                                coordinating inquiries, and helping create a professional and welcoming
-                                enrollment experience.
-                            </p>
-                        </div>
-                    </article>
 
-                    <article class="timeline-item reveal">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-card">
-                            <span class="timeline-date">Leadership Role</span>
-                            <h3>Bonsai Technology</h3>
-                            <h4>Managing Director</h4>
-                            <p>
-                                Supporting brand direction, professional presentation, planning,
-                                and overall coordination with a stronger leadership presence.
-                            </p>
-                        </div>
-                    </article>
+                    <div class="timeline-item reveal">
 
-                    <article class="timeline-item reveal">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-card">
-                            <span class="timeline-date">Ongoing</span>
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <span class="timeline-date">
+                                PRESENT
+                            </span>
+
                             <h3>Bachelor of Computer Applications</h3>
-                            <h4>BCA Student</h4>
-                            <p>
-                                Continuing academic study in programming, software development,
-                                databases, and web technologies while applying those skills in practical work.
-                            </p>
-                        </div>
-                    </article>
 
-                    <article class="timeline-item reveal">
-                        <span class="timeline-dot"></span>
-                        <div class="timeline-card">
-                            <span class="timeline-date">Project Experience</span>
-                            <h3>Frontend Development and UI/UX Design</h3>
-                            <h4>Personal and Academic Projects</h4>
+                            <h4>BCA Student</h4>
+
                             <p>
-                                Building responsive websites, interface concepts, classroom-style products,
-                                and frontend systems using HTML, CSS, JavaScript, Firebase, and Figma.
+                                Studying computer applications with a focus
+                                on programming, web technologies, databases
+                                and software development.
                             </p>
+
                         </div>
-                    </article>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <span class="timeline-date">
+                                PROJECT EXPERIENCE
+                            </span>
+
+                            <h3>Frontend Development</h3>
+
+                            <h4>Personal & Academic Projects</h4>
+
+                            <p>
+                                Developed responsive websites and web
+                                applications using HTML, CSS, JavaScript
+                                and Firebase.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="timeline-item reveal">
+
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+
+                            <span class="timeline-date">
+                                DESIGN EXPERIENCE
+                            </span>
+
+                            <h3>UI/UX & Graphic Design</h3>
+
+                            <h4>Independent Projects</h4>
+
+                            <p>
+                                Designed interfaces, prototypes, graphics
+                                and digital experiences using Figma and
+                                modern design principles.
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
+
+
+        <!-- ================= SERVICES ================= -->
 
         <section class="section services" id="services">
+
             <div class="container">
-                <div class="section-head center reveal">
-                    <span class="section-kicker">Services</span>
-                    <h2>Areas where I can <span>support real projects.</span></h2>
-                    <p>
-                        This part is also refined to sound more natural and professional, matching the rest of the site.
-                    </p>
+
+                <div class="section-heading reveal">
+
+                    <p class="section-label">WHAT I DO</p>
+
+                    <h2>
+                        Services I can
+                        <span>provide.</span>
+                    </h2>
+
                 </div>
 
-                <div class="service-grid">
-                    <article class="service-card reveal">
-                        <span class="service-no">01</span>
+                <div class="services-grid">
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+
+                        <span>01</span>
+
                         <h3>UI/UX Design</h3>
-                        <p>Modern interface design focused on simplicity, flow, and a strong visual foundation.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <span class="service-no">02</span>
+
+                        <p>
+                            Clean, intuitive and user-focused interfaces
+                            designed for websites and applications.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <span>02</span>
+
                         <h3>Frontend Development</h3>
-                        <p>Responsive implementation with careful attention to layout, interaction, and detail.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <span class="service-no">03</span>
-                        <h3>Classroom and Dashboard UI</h3>
-                        <p>Structured educational and management interfaces designed for clarity and usability.</p>
-                    </article>
-                    <article class="service-card reveal">
-                        <span class="service-no">04</span>
-                        <h3>Portfolio and Business Websites</h3>
-                        <p>Professional web presentation for personal brands, portfolios, and company profiles.</p>
-                    </article>
+
+                        <p>
+                            Responsive and interactive websites built with
+                            modern HTML, CSS and JavaScript.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-laptop-code"></i>
+                        </div>
+
+                        <span>03</span>
+
+                        <h3>Website Design</h3>
+
+                        <p>
+                            Professional website layouts designed around
+                            usability, branding and performance.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-palette"></i>
+                        </div>
+
+                        <span>04</span>
+
+                        <h3>Graphic Design</h3>
+
+                        <p>
+                            Creative visual designs for digital platforms,
+                            social media and branding.
+                        </p>
+
+                    </div>
+
+
+                    <div class="service-card reveal">
+
+                        <div class="service-icon">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+
+                        <span>05</span>
+
+                        <h3>E-commerce Development</h3>
+
+                        <p>
+                            Responsive online stores with product,
+                            authentication and database functionality.
+                        </p>
+
+                    </div>
+
                 </div>
+
             </div>
+
         </section>
 
+
+       
+
+        <!-- ================= CONTACT ================= -->
+
         <section class="section contact" id="contact">
-            <div class="container contact-card reveal">
-                <div class="contact-copy">
-                    <span class="section-kicker light">Contact</span>
-                    <h2>Let’s build something <span>clean and memorable.</span></h2>
+
+            <div class="container">
+
+                <div class="section-heading center reveal">
+
+                    <p class="section-label">GET IN TOUCH</p>
+
+                    <h2>
+                        Let's create something
+                        <span>great together.</span>
+                    </h2>
+
                     <p>
-                        If you have a project, collaboration, or opportunity, feel free to reach out.
-                        This section now feels simpler, softer, and easier to use.
+                        Have a project, idea or opportunity?
+                        Send me a message.
                     </p>
 
-                    <div class="contact-list">
-                        <a class="contact-item" href="mailto:bikram.official77@gmail.com">
-                            <strong>Email</strong>
-                            <span>bikram.official77@gmail.com</span>
-                        </a>
-                        <a
-                            class="contact-item"
-                            href="https://www.linkedin.com/in/biksss-dhamala"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            <strong>LinkedIn</strong>
-                            <span>linkedin.com/in/biksss-dhamala</span>
-                        </a>
-                    </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
-                    <div class="form-grid">
+
+                <div class="contact-grid">
+
+                    <div class="contact-info reveal">
+
+                        <a
+                            href="mailto:your@email.com"
+                            class="contact-item"
+                        >
+
+                            <div class="contact-icon">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+
+                            <div>
+                                <span>Email</span>
+                                <strong>bikram.official77@gmail.com</strong>
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            class="contact-item"
+                        >
+
+                            <div class="contact-icon">
+                                <i class="fa-brands fa-github"></i>
+                            </div>
+
+                            <div>
+                                <span>GitHub</span>
+                                <strong>github.com/yourusername</strong>
+                            </div>
+
+                        </a>
+
+
+                        <a
+                            href="https://www.linkedin.com/in/biksss-dhamala"
+                            target="_blank"
+                            class="contact-item"
+                        >
+
+                            <div class="contact-icon">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </div>
+
+                            <div>
+                                <span>LinkedIn</span>
+                                <strong>linkedin.com/in/yourprofile</strong>
+                            </div>
+
+                        </a>
+
+                    </div>
+
+
+                    <form class="contact-form reveal" id="contactForm">
+
+                        <div class="input-row">
+
+                            <div class="input-group">
+
+                                <label for="name">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="input-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
                         <div class="input-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                            <label for="subject">
+                                Subject
+                            </label>
+
+                            <input
+                                type="text"
+                                id="subject"
+                                name="subject"
+                                placeholder="Project / Opportunity"
+                                required
+                            >
+
                         </div>
+
+
                         <div class="input-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                        </div>
-                        <div class="input-group full">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" name="subject" placeholder="Project or opportunity" required>
-                        </div>
-                        <div class="input-group full">
-                            <label for="message">Message</label>
+
+                            <label for="message">
+                                Message
+                            </label>
+
                             <textarea
                                 id="message"
                                 name="message"
                                 rows="6"
-                                placeholder="Write a short message about your project or idea..."
+                                placeholder="Tell me about your project..."
                                 required
                             ></textarea>
-                        </div>
-                    </div>
 
-                    <button class="btn btn-light" type="submit">Open Email Draft</button>
-                    <p class="form-note">This form prepares an email draft in your mail app.</p>
-                </form>
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary submit-btn"
+                        >
+                            Send Message
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+
+                    </form>
+
+                </div>
+
             </div>
+
         </section>
+
     </main>
 
-    <footer class="site-footer">
-        <div class="container footer-shell">
-            <p>© <span id="year"></span> Bikram Dhamala. Designed with a calmer UI/UX portfolio style.</p>
-            <a href="#home">Back to top</a>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+
+        <div class="container footer-content">
+
+            <div>
+
+                <a href="#home" class="logo">
+                    <span>B</span>D.
+                </a>
+
+                <p>
+                    UI/UX Designer & Frontend Developer.
+                </p>
+
+            </div>
+
+
+            <div class="footer-social">
+
+                <a href="https://github.com/" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+
+                <a href="mailto:your@email.com">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+
+            </div>
+
         </div>
+
+
+        <div class="container footer-bottom">
+
+            <p>
+                © <span id="year"></span> Bikram Dhamala.
+                All rights reserved.
+            </p>
+
+            <a href="#home">
+                Back to top
+                <i class="fa-solid fa-arrow-up"></i>
+            </a>
+
+        </div>
+
     </footer>
 
-    <div class="toast" id="toast" aria-live="polite" aria-atomic="true">
-        <span>Updated.</span>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-circle-check"></i>
+        <span>Message submitted successfully!</span>
     </div>
 
-    <script src="bikram-portfolio-script.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 </html>
+
+
+
+
+Scipts.js 
+/* =========================================================
+   BIKRAM DHAMALA PORTFOLIO
+   Vanilla JavaScript
+========================================================= */
+
+
+/* ================= ELEMENTS ================= */
+
+const body = document.body;
+
+const header = document.getElementById("header");
+
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+
+const themeBtn = document.getElementById("themeBtn");
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const toast =
+    document.getElementById("toast");
+
+const year =
+    document.getElementById("year");
+
+
+/* ================= CURRENT YEAR ================= */
+
+year.textContent = new Date().getFullYear();
+
+
+/* ================= MOBILE MENU ================= */
+
+menuBtn.addEventListener("click", () => {
+
+    navMenu.classList.toggle("open");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navMenu.classList.contains("open")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+    } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* Close mobile menu after clicking a link */
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("open");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
+
+/* ================= THEME ================= */
+
+const savedTheme =
+    localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "light") {
+
+    body.classList.add("light");
+
+    themeBtn.innerHTML =
+        '<i class="fa-solid fa-sun"></i>';
+
+}
+
+
+themeBtn.addEventListener("click", () => {
+
+    body.classList.toggle("light");
+
+    const isLight =
+        body.classList.contains("light");
+
+    localStorage.setItem(
+        "portfolio-theme",
+        isLight ? "light" : "dark"
+    );
+
+    themeBtn.innerHTML = isLight
+
+        ? '<i class="fa-solid fa-sun"></i>'
+
+        : '<i class="fa-solid fa-moon"></i>';
+
+});
+
+
+/* ================= HEADER SCROLL ================= */
+
+function updateHeader() {
+
+    if (window.scrollY > 30) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+}
+
+window.addEventListener("scroll", updateHeader);
+
+updateHeader();
+
+
+/* ================= ACTIVE NAV ================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+
+function updateActiveNav() {
+
+    let currentSection = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") ===
+            `#${currentSection}`
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    updateActiveNav
+);
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer =
+    new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* ================= PROJECT FILTER ================= */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const filter =
+            button.dataset.filter;
+
+
+        /* Active button */
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        /* Filter cards */
+
+        projectCards.forEach(card => {
+
+            const category =
+                card.dataset.category;
+
+
+            if (
+                filter === "all" ||
+                category === filter
+            ) {
+
+                card.classList.remove("hide");
+
+            } else {
+
+                card.classList.add("hide");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* ================= CONTACT FORM ================= */
+
+contactForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const subject =
+            document.getElementById("subject").value.trim();
+
+        const message =
+            document.getElementById("message").value.trim();
+
+
+        if (
+            !name ||
+            !email ||
+            !subject ||
+            !message
+        ) {
+
+            showToast(
+                "Please fill in all fields."
+            );
+
+            return;
+
+        }
+
+
+        /*
+            This is a frontend-only form.
+
+            To actually send emails, connect this form
+            to Formspree, EmailJS, Firebase or your own backend.
+        */
+
+
+        showToast(
+            "Message submitted successfully!"
+        );
+
+
+        contactForm.reset();
+
+    }
+);
+
+
+/* ================= TOAST ================= */
+
+let toastTimer;
+
+
+function showToast(message) {
+
+    const toastText =
+        toast.querySelector("span");
+
+    toastText.textContent = message;
+
+    toast.classList.add("show");
+
+
+    clearTimeout(toastTimer);
+
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 3000);
+
+}
+
+
+/* ================= SMOOTH ANCHOR ================= */
+
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(anchor => {
+
+    anchor.addEventListener(
+        "click",
+        function (event) {
+
+            const targetId =
+                this.getAttribute("href");
+
+            if (
+                targetId === "#" ||
+                !targetId
+            ) {
+                return;
+            }
+
+
+            const target =
+                document.querySelector(targetId);
+
+
+            if (!target) {
+                return;
+            }
+
+
+            event.preventDefault();
+
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+    );
+
+});
+
+
+/* ================= BUTTON RIPPLE ================= */
+
+document.querySelectorAll(".btn").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        this.style.transform =
+            "scale(0.98)";
+
+        setTimeout(() => {
+
+            this.style.transform = "";
+
+        }, 120);
+
+    });
+
+});
