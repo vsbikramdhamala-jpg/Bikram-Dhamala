@@ -1,7 +1,3 @@
-/* =========================================================
-   BIKRAM DHAMALA PORTFOLIO
-========================================================= */
-
 const body = document.body;
 const header = document.getElementById("header");
 const menuBtn = document.getElementById("menuBtn");
