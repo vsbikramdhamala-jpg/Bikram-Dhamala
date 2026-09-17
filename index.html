@@ -1,307 +1,423 @@
-<!DOCTYPE html>
+from pathlib import Path
+import zipfile
+
+base = Path("/mnt/data/bikram_portfolio")
+base.mkdir(exist_ok=True)
+
+html = r'''<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Bikram Dhamala — UI/UX Designer and Frontend Developer Portfolio">
-    <meta name="author" content="Bikram Dhamala">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bikram Dhamala — UI/UX Designer, Frontend Developer and BCA Student">
+  <meta name="author" content="Bikram Dhamala">
+  <meta property="og:title" content="Bikram Dhamala | Designer & Developer">
+  <meta property="og:description" content="Designing thoughtful interfaces and building modern web experiences.">
+  <meta property="og:type" content="website">
+  <title>Bikram Dhamala — Designer & Developer</title>
 
-    <!-- Open Graph Meta Tags for Social Media Sharing -->
-    <meta property="og:title" content="Bikram Dhamala | UI/UX Designer & Frontend Developer">
-    <meta property="og:description" content="Clean, modern, and user-friendly digital experiences.">
-    <meta property="og:type" content="website">
-
-    <title>Bikram Dhamala | UI/UX Designer & Frontend Developer</title>
-
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-    <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
 
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="navbar container">
-            <a href="#home" class="logo"><span>B</span>D.</a>
+  <header class="header" id="header">
+    <nav class="navbar container">
+      <a href="#home" class="logo" aria-label="Bikram Dhamala home">
+        <span>B</span><b>ikram</b><em>.</em>
+      </a>
 
-            <div class="nav-menu" id="navMenu">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#contact" class="nav-link">Contact</a>
-            </div>
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
 
-            <div class="nav-actions">
-                <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-                <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </nav>
-    </header>
+      <div class="nav-actions">
+        <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">
+          <i class="fa-solid fa-moon"></i>
+        </button>
+        <a href="#contact" class="nav-cta">Let's Talk <i class="fa-solid fa-arrow-up-right"></i></a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero" id="home">
-            <div class="hero-bg-circle circle-one"></div>
-            <div class="hero-bg-circle circle-two"></div>
-            <div class="hero-grid-overlay"></div>
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-orb orb-a"></div>
+      <div class="hero-orb orb-b"></div>
+      <div class="hero-lines"></div>
 
-            <div class="container hero-grid">
-                <div class="hero-content reveal">
-                    <div class="available">
-                        <span class="status-dot"></span> Available for opportunities
-                    </div>
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <div class="availability"><span></span> Available for opportunities</div>
+          <p class="eyebrow">HELLO, I'M BIKRAM</p>
 
-                    <p class="hero-small">HELLO, I'M</p>
-                    <h1>Bikram <span>Dhamala</span></h1>
+          <h1>Building digital<br><span>experiences</span> that matter.</h1>
 
-                    <h2 class="hero-role">
-                        <span id="roleText">UI/UX Designer</span><span class="cursor">|</span>
-                    </h2>
+          <p class="hero-role">
+            <span id="roleText">UI/UX Designer</span><span class="blink">_</span>
+          </p>
 
-                    <p class="hero-description">
-                        I craft clean, intuitive digital products by bridging user-centered design with modern frontend development.
-                    </p>
+          <p class="hero-description">
+            BCA student and aspiring UI/UX & web developer focused on creating clean,
+            intuitive interfaces and reliable modern web experiences.
+          </p>
 
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">
-                            View Work <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                        <a href="#contact" class="btn btn-outline">
-                            Get In Touch
-                        </a>
-                    </div>
+          <div class="hero-actions">
+            <a href="#projects" class="btn primary">Explore My Work <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="#contact" class="btn ghost">Let's Connect</a>
+          </div>
 
-                    <div class="social-links">
-                        <a href="https://github.com/bikramdhamala" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-                        <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-                        <a href="mailto:bikram.official77@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
-                    </div>
-                </div>
-
-                <div class="hero-visual reveal">
-                    <div class="orbit-ring ring-one"></div>
-                    <div class="orbit-ring ring-two"></div>
-
-                    <div class="profile-card">
-                        <div class="profile-glow"></div>
-                        <div class="profile-placeholder">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-
-                        <div class="floating-card card-design">
-                            <i class="fa-brands fa-figma"></i>
-                            <div><strong>UI/UX</strong><small>Design</small></div>
-                        </div>
-
-                        <div class="floating-card card-code">
-                            <i class="fa-solid fa-laptop-code"></i>
-                            <div><strong>Frontend</strong><small>Development</small></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <a href="#about" class="scroll-down" aria-label="Scroll down">
-                <span>Scroll to explore</span>
-                <i class="fa-solid fa-arrow-down"></i>
-            </a>
-        </section>
-
-        <!-- About Section -->
-        <section class="section about" id="about">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <p class="section-label">ABOUT ME</p>
-                    <h2>Turning ideas into <span>digital experiences.</span></h2>
-                </div>
-
-                <div class="about-grid">
-                    <div class="about-text reveal">
-                        <p class="lead">
-                            I am a BCA student passionate about building high-quality UI/UX designs and modern frontend web applications.
-                        </p>
-                        <p>
-                            With a strong balance of aesthetic sense and technical execution, I bridge the gap between creative visual designs and functional web implementations.
-                        </p>
-
-                        <div class="about-buttons">
-                            <a href="#contact" class="text-link">
-                                Let's work together <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="about-stats reveal">
-                        <div class="stat-card">
-                            <strong>01</strong>
-                            <span>UI/UX Design</span>
-                        </div>
-                        <div class="stat-card">
-                            <strong>02</strong>
-                            <span>Frontend Development</span>
-                        </div>
-                        <div class="stat-card">
-                            <strong>03</strong>
-                            <span>Graphic Design</span>
-                        </div>
-                        <div class="stat-card">
-                            <strong>04</strong>
-                            <span>Responsive Web Design</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="section skills-section" id="skills">
-            <div class="container">
-                <div class="section-heading center reveal">
-                    <p class="section-label">MY SKILLS</p>
-                    <h2>Technologies & <span>Tools.</span></h2>
-                </div>
-
-                <div class="skills-grid">
-                    <div class="skill-card reveal">
-                        <div class="skill-icon html"><i class="fa-brands fa-html5"></i></div>
-                        <h3>HTML5</h3>
-                        <p>Semantic & accessible structures</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon css"><i class="fa-brands fa-css3-alt"></i></div>
-                        <h3>CSS3</h3>
-                        <p>Flexbox, Grid & modern styling</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon js"><i class="fa-brands fa-js"></i></div>
-                        <h3>JavaScript</h3>
-                        <p>Dynamic user experiences</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon figma"><i class="fa-brands fa-figma"></i></div>
-                        <h3>Figma</h3>
-                        <p>Wireframing & interactive prototypes</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon firebase"><i class="fa-solid fa-fire"></i></div>
-                        <h3>Firebase</h3>
-                        <p>Realtime DB & Authentication</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon git"><i class="fa-brands fa-github"></i></div>
-                        <h3>Git & GitHub</h3>
-                        <p>Version control & workflow</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="section projects" id="projects">
-            <div class="container">
-                <div class="section-heading reveal">
-                    <p class="section-label">PORTFOLIO</p>
-                    <h2>Featured <span>Projects.</span></h2>
-                </div>
-
-                <div class="projects-grid">
-                    <article class="project-card reveal" data-category="web">
-                        <div class="project-image">
-                            <div class="project-graphic grad-one">
-                                <i class="fa-solid fa-chalkboard-user"></i>
-                            </div>
-                            <span class="project-number">01</span>
-                        </div>
-
-                        <div class="project-content">
-                            <span class="project-type">Web Application</span>
-                            <h3>Classroom OS</h3>
-                            <p>
-                                A comprehensive classroom management platform for modern educators and students.
-                            </p>
-                            <div class="tech-tags">
-                                <span>HTML</span><span>CSS</span><span>JS</span><span>Firebase</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://classroomos.onrender.com/login?callbackUrl=%2F" target="_blank" rel="noopener noreferrer" class="btn-sm btn-primary">
-                                    Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="section contact" id="contact">
-            <div class="container">
-                <div class="section-heading center reveal">
-                    <p class="section-label">GET IN TOUCH</p>
-                    <h2>Let's build <span>something great.</span></h2>
-                </div>
-
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
-                        <a href="mailto:bikram.official77@gmail.com" class="contact-item">
-                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
-                            <div><span>Email</span><strong>bikram.official77@gmail.com</strong></div>
-                        </a>
-                        <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank" rel="noopener noreferrer" class="contact-item">
-                            <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
-                            <div><span>LinkedIn</span><strong>biksss-dhamala</strong></div>
-                        </a>
-                    </div>
-
-                    <!-- Configured for Formspree: replace YOUR_FORM_ID with your Formspree ID -->
-                    <form class="contact-form reveal" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contactForm">
-                        <div class="input-row">
-                            <div class="input-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="input-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="you@example.com" required>
-                            </div>
-                        </div>
-                        <div class="input-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary submit-btn">
-                            Send Message <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>© <span id="year"></span> Bikram Dhamala. All rights reserved.</p>
+          <div class="hero-socials">
+            <a href="https://github.com/bikramdhamala" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="mailto:bikram.official77@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <span class="social-line"></span>
+            <small>Based in Nepal</small>
+          </div>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+        <div class="hero-visual reveal">
+          <div class="visual-frame">
+            <div class="frame-top">
+              <span><i></i><i></i><i></i></span>
+              <small>portfolio / 2026</small>
+            </div>
+
+            <div class="portrait-area">
+              <div class="portrait-placeholder">
+                <div class="initial">B</div>
+                <span>DESIGN × CODE</span>
+              </div>
+              <div class="scan"></div>
+            </div>
+
+            <div class="floating-label label-one">
+              <i class="fa-brands fa-figma"></i>
+              <div><b>UI/UX</b><small>Design</small></div>
+            </div>
+
+            <div class="floating-label label-two">
+              <i class="fa-solid fa-code"></i>
+              <div><b>Frontend</b><small>Development</small></div>
+            </div>
+
+            <div class="circle-text">CREATIVE • DIGITAL • FUTURE • </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue"><span>SCROLL</span><i class="fa-solid fa-arrow-down"></i></a>
+    </section>
+
+    <section class="marquee">
+      <div class="marquee-track">
+        <span>UI/UX DESIGN</span><i>✦</i><span>FRONTEND DEVELOPMENT</span><i>✦</i>
+        <span>WEB EXPERIENCES</span><i>✦</i><span>CREATIVE THINKING</span><i>✦</i>
+        <span>UI/UX DESIGN</span><i>✦</i><span>FRONTEND DEVELOPMENT</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="eyebrow">01 / ABOUT</p><h2>Design with purpose.<br><span>Build with intent.</span></h2></div>
+          <p class="section-intro">I enjoy turning ideas into interfaces that feel simple, useful and memorable.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p class="big-copy">I'm a BCA student passionate about <strong>UI/UX design</strong>, frontend development and digital products.</p>
+            <p>My approach combines visual thinking with practical technical execution. I care about structure, usability, responsive layouts and the small details that make a product feel polished.</p>
+            <a href="#contact" class="under-link">Start a conversation <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+
+          <div class="about-cards">
+            <div class="mini-card reveal"><span>01</span><i class="fa-solid fa-pen-ruler"></i><h3>UI/UX Design</h3><p>Wireframes, interfaces, prototypes and user-focused layouts.</p></div>
+            <div class="mini-card reveal"><span>02</span><i class="fa-solid fa-laptop-code"></i><h3>Frontend</h3><p>Responsive websites using clean HTML, CSS and JavaScript.</p></div>
+            <div class="mini-card reveal"><span>03</span><i class="fa-solid fa-wand-magic-sparkles"></i><h3>Creative Design</h3><p>Visual systems, graphics and digital content with personality.</p></div>
+            <div class="mini-card reveal"><span>04</span><i class="fa-solid fa-mobile-screen-button"></i><h3>Responsive</h3><p>Experiences designed to work beautifully across screen sizes.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills" id="skills">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow">02 / TOOLKIT</p>
+          <h2>Tools I use to<br><span>bring ideas to life.</span></h2>
+        </div>
+
+        <div class="skill-grid">
+          <div class="skill reveal"><div class="skill-icon"><i class="fa-brands fa-html5"></i></div><div><h3>HTML5</h3><p>Semantic structure</p></div><strong>90%</strong></div>
+          <div class="skill reveal"><div class="skill-icon"><i class="fa-brands fa-css3-alt"></i></div><div><h3>CSS3</h3><p>Modern layouts</p></div><strong>88%</strong></div>
+          <div class="skill reveal"><div class="skill-icon"><i class="fa-brands fa-js"></i></div><div><h3>JavaScript</h3><p>Interactive experiences</p></div><strong>78%</strong></div>
+          <div class="skill reveal"><div class="skill-icon"><i class="fa-brands fa-figma"></i></div><div><h3>Figma</h3><p>UI & prototypes</p></div><strong>85%</strong></div>
+          <div class="skill reveal"><div class="skill-icon"><i class="fa-solid fa-fire"></i></div><div><h3>Firebase</h3><p>Database & auth</p></div><strong>70%</strong></div>
+          <div class="skill reveal"><div class="skill-icon"><i class="fa-brands fa-github"></i></div><div><h3>GitHub</h3><p>Version control</p></div><strong>78%</strong></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section projects" id="projects">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="eyebrow">03 / SELECTED WORK</p><h2>Things I've<br><span>been building.</span></h2></div>
+          <p class="section-intro">A growing collection of web, design and product experiments.</p>
+        </div>
+
+        <article class="project-feature reveal">
+          <div class="project-art">
+            <div class="art-window">
+              <div class="window-bar"><span></span><span></span><span></span><b>CLASSROOM OS</b></div>
+              <div class="dashboard">
+                <aside><strong>CO</strong><i></i><i></i><i></i><i></i></aside>
+                <div class="dash-main">
+                  <small>GOOD MORNING</small><h3>Welcome back.</h3>
+                  <div class="dash-cards"><div></div><div></div><div></div></div>
+                  <div class="dash-chart"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                </div>
+              </div>
+            </div>
+            <span class="project-index">01</span>
+          </div>
+
+          <div class="project-info">
+            <p class="project-type">WEB APPLICATION</p>
+            <h3>Classroom OS</h3>
+            <p>A classroom management platform concept built to make everyday educator and student workflows more organized and accessible.</p>
+            <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Firebase</span></div>
+            <a href="https://classroomos.onrender.com/login?callbackUrl=%2F" target="_blank" rel="noopener" class="project-link">View live project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section experience" id="experience">
+      <div class="container">
+        <div class="section-head center reveal">
+          <p class="eyebrow">04 / EXPERIENCE</p>
+          <h2>Learning by<br><span>doing.</span></h2>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal">
+            <div class="time">CURRENT</div>
+            <div class="timeline-dot"></div>
+            <div><p class="eyebrow">EDUCATION</p><h3>BCA — Bachelor of Computer Applications</h3><p>Building a foundation in programming, databases, web technologies and software development while exploring UI/UX.</p></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="time">2025 — NOW</div>
+            <div class="timeline-dot"></div>
+            <div><p class="eyebrow">PROFESSIONAL</p><h3>Operations Officer — Education Consultancy</h3><p>Coordinating student applications, documentation and university communication in a fast-moving consultancy environment.</p></div>
+          </div>
+          <div class="timeline-item reveal">
+            <div class="time">ONGOING</div>
+            <div class="timeline-dot"></div>
+            <div><p class="eyebrow">FOCUS</p><h3>UI/UX & Web Development</h3><p>Continuously developing practical skills through personal projects, experimentation and hands-on learning.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact">
+      <div class="container contact-box reveal">
+        <div class="contact-glow"></div>
+        <p class="eyebrow">05 / CONTACT</p>
+        <h2>Have an idea?<br><span>Let's make it real.</span></h2>
+        <p>Whether it's a website, interface or creative digital project, I'd love to hear what you're working on.</p>
+        <a class="contact-email" href="mailto:bikram.official77@gmail.com">bikram.official77@gmail.com <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+        <div class="contact-socials">
+          <a href="https://github.com/bikramdhamala" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:bikram.official77@gmail.com">Email</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Bikram Dhamala</span>
+      <span>Designed & built with curiosity.</span>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
-</html>
+</html>'''
+
+css = r'''@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#08090c; --surface:#101217; --surface2:#15171e; --text:#f5f5f7; --muted:#9a9da8;
+  --line:rgba(255,255,255,.09); --accent:#c7ff43; --accent2:#7dffb2; --shadow:0 25px 80px rgba(0,0,0,.35);
+}
+body.light{--bg:#f5f5f0;--surface:#fff;--surface2:#ecece7;--text:#111217;--muted:#62656d;--line:rgba(0,0,0,.09);--shadow:0 25px 70px rgba(0,0,0,.12)}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+.cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(199,255,67,.09),transparent 65%);transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.header{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(8,9,12,.68);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
+body.light .header{background:rgba(245,245,240,.72)}
+.header.scrolled{border-color:var(--line)}
+.navbar{height:82px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:700 24px "Space Grotesk";letter-spacing:-1px}.logo span{display:inline-grid;place-items:center;width:35px;height:35px;border:1px solid var(--accent);border-radius:50%;color:var(--accent);margin-right:2px}.logo b{font-weight:700}.logo em{color:var(--accent);font-style:normal}
+.nav-menu{display:flex;gap:30px;margin-left:auto;margin-right:40px}.nav-link{font-size:13px;color:var(--muted);position:relative;transition:.25s}.nav-link:hover,.nav-link.active{color:var(--text)}.nav-link.active:after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;background:var(--accent)}
+.nav-actions{display:flex;align-items:center;gap:13px}.theme-btn,.menu-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer}.nav-cta{font-size:13px;font-weight:700;background:var(--accent);color:#0a0c08;padding:11px 17px;border-radius:99px}.nav-cta i{margin-left:6px}.menu-btn{display:none}
+.hero{min-height:100vh;position:relative;display:grid;align-items:center;padding:130px 0 80px;overflow:hidden}.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px;position:relative;z-index:2}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(2px);pointer-events:none}.orb-a{width:520px;height:520px;right:-150px;top:8%;background:radial-gradient(circle,rgba(199,255,67,.12),transparent 68%)}.orb-b{width:380px;height:380px;left:-230px;bottom:-180px;background:radial-gradient(circle,rgba(125,255,178,.07),transparent 68%)}
+.hero-lines{position:absolute;inset:0;opacity:.18;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:80px 80px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.availability{display:inline-flex;align-items:center;gap:9px;border:1px solid var(--line);background:rgba(255,255,255,.025);padding:8px 13px;border-radius:99px;color:#c5c7cd;font-size:12px;margin-bottom:28px}.availability span{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 14px var(--accent)}
+.eyebrow{font-size:11px;letter-spacing:2.8px;color:var(--accent);font-weight:700;margin-bottom:17px}
+.hero h1{font:700 clamp(48px,6.3vw,86px)/.98 "Space Grotesk";letter-spacing:-4px;max-width:800px}.hero h1 span,.section-head h2 span,.contact-box h2 span{color:var(--accent)}
+.hero-role{font:600 21px "Space Grotesk";margin:26px 0 12px;color:#d9dbe0}.blink{color:var(--accent);animation:blink .8s infinite}.hero-description{max-width:610px;color:var(--muted);font-size:16px}
+@keyframes blink{50%{opacity:0}}
+.hero-actions{display:flex;gap:12px;margin:30px 0}.btn{display:inline-flex;align-items:center;gap:11px;padding:14px 20px;border-radius:8px;font-weight:700;font-size:13px;transition:.3s}.btn.primary{background:var(--accent);color:#0a0c08}.btn.primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(199,255,67,.18)}.btn.ghost{border:1px solid var(--line);background:rgba(255,255,255,.02)}.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.hero-socials{display:flex;align-items:center;gap:14px;color:var(--muted)}.hero-socials a{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;transition:.25s}.hero-socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}.social-line{width:45px;height:1px;background:var(--line)}.hero-socials small{font-size:11px}
+.hero-visual{display:flex;justify-content:center}.visual-frame{width:min(470px,100%);aspect-ratio:4/5;position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:var(--shadow);overflow:visible;transform:rotate(2deg);transition:transform .5s}.visual-frame:hover{transform:rotate(0) translateY(-7px)}
+.frame-top{height:48px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:var(--muted);font-size:10px;letter-spacing:1px}.frame-top span{display:flex;gap:5px}.frame-top i{width:7px;height:7px;border-radius:50%;border:1px solid var(--muted)}
+.portrait-area{position:absolute;inset:48px 0 0;background:radial-gradient(circle at 50% 38%,rgba(199,255,67,.14),transparent 34%),linear-gradient(145deg,#171a20,#0c0e12);display:grid;place-items:center;overflow:hidden}.portrait-placeholder{text-align:center;transform:translateY(-8px)}.initial{font:700 220px/.8 "Space Grotesk";color:transparent;-webkit-text-stroke:1px rgba(199,255,67,.5);text-shadow:0 0 70px rgba(199,255,67,.08)}.portrait-placeholder span{font-size:10px;letter-spacing:6px;color:#7d818a}.scan{position:absolute;left:0;right:0;top:45%;height:1px;background:var(--accent);box-shadow:0 0 18px var(--accent);opacity:.25;animation:scan 4s ease-in-out infinite}@keyframes scan{0%,100%{top:25%}50%{top:75%}}
+.floating-label{position:absolute;z-index:3;display:flex;gap:10px;align-items:center;padding:12px 14px;background:rgba(15,17,22,.92);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:var(--shadow);font-size:12px}.floating-label i{font-size:18px;color:var(--accent)}.floating-label small,.floating-label b{display:block}.floating-label small{color:var(--muted);font-size:9px}.label-one{left:-35px;top:27%}.label-two{right:-34px;bottom:22%}.circle-text{position:absolute;right:-55px;top:-22px;width:110px;height:110px;border:1px dashed var(--accent);border-radius:50%;font-size:8px;letter-spacing:2px;color:var(--accent);display:grid;place-items:center;text-align:center;padding:20px;transform:rotate(-20deg)}
+.scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted);font-size:9px;letter-spacing:2px}.scroll-cue i{color:var(--accent);animation:down 1.5s infinite}@keyframes down{50%{transform:translateY(5px)}}
+.marquee{overflow:hidden;border-block:1px solid var(--line);padding:17px 0;white-space:nowrap}.marquee-track{display:inline-flex;gap:35px;align-items:center;animation:marquee 25s linear infinite;font:600 13px "Space Grotesk";letter-spacing:2px}.marquee i{color:var(--accent);font-style:normal}@keyframes marquee{to{transform:translateX(-50%)}}
+.section{padding:130px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:65px}.section-head.center{display:block;text-align:center}.section-head h2{font:700 clamp(38px,5vw,65px)/1.03 "Space Grotesk";letter-spacing:-2.5px}.section-intro{max-width:370px;color:var(--muted);font-size:15px}
+.about{background:linear-gradient(180deg,transparent,rgba(255,255,255,.015),transparent)}.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px}.big-copy{font:500 28px/1.35 "Space Grotesk";margin-bottom:24px}.about-copy>p:not(.big-copy){color:var(--muted);max-width:520px}.under-link{display:inline-flex;gap:10px;align-items:center;margin-top:30px;font-weight:700;font-size:13px;border-bottom:1px solid var(--accent);padding-bottom:6px}.under-link i{color:var(--accent)}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.mini-card{padding:28px;background:var(--surface);border:1px solid var(--line);position:relative;transition:.35s}.mini-card:hover{transform:translateY(-6px);border-color:rgba(199,255,67,.35)}.mini-card>span{position:absolute;right:20px;top:18px;color:#555a63;font:600 11px "Space Grotesk"}.mini-card i{font-size:20px;color:var(--accent);margin-bottom:30px}.mini-card h3{font:600 18px "Space Grotesk";margin-bottom:7px}.mini-card p{font-size:12px;color:var(--muted)}
+.skills{background:var(--surface)}.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}.skill{background:var(--surface);padding:25px;display:grid;grid-template-columns:auto 1fr auto;gap:17px;align-items:center;transition:.25s}.skill:hover{background:var(--surface2)}.skill-icon{width:45px;height:45px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;font-size:21px;color:var(--accent)}.skill h3{font:600 16px "Space Grotesk"}.skill p{font-size:11px;color:var(--muted)}.skill>strong{font:600 11px "Space Grotesk";color:var(--muted)}
+.project-feature{display:grid;grid-template-columns:1.35fr .65fr;gap:0;background:var(--surface);border:1px solid var(--line);overflow:hidden}.project-art{min-height:480px;position:relative;background:radial-gradient(circle at 50% 50%,rgba(199,255,67,.09),transparent 55%),#0d0f13;display:grid;place-items:center;padding:45px}.art-window{width:100%;box-shadow:0 30px 70px #0008;border:1px solid #ffffff14;background:#12151b;transform:perspective(900px) rotateY(-8deg) rotateX(3deg);transition:.5s}.project-art:hover .art-window{transform:perspective(900px) rotateY(0) rotateX(0) translateY(-5px)}.window-bar{height:36px;border-bottom:1px solid #ffffff10;display:flex;align-items:center;gap:5px;padding:0 12px;color:#737985;font-size:8px}.window-bar span{width:6px;height:6px;border-radius:50%;background:#555}.window-bar b{margin-left:auto;font:600 8px "Space Grotesk";letter-spacing:1px}.dashboard{display:grid;grid-template-columns:52px 1fr;height:280px}.dashboard aside{border-right:1px solid #ffffff0d;display:flex;flex-direction:column;align-items:center;padding:17px 0;gap:22px}.dashboard aside strong{color:var(--accent);font:700 18px "Space Grotesk"}.dashboard aside i{width:14px;height:14px;border:1px solid #ffffff1a;border-radius:4px}.dash-main{padding:30px}.dash-main small{font-size:7px;color:#737985;letter-spacing:1.5px}.dash-main h3{font:600 24px "Space Grotesk";margin:4px 0 20px}.dash-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.dash-cards div{height:55px;background:linear-gradient(135deg,#1c2028,#15181e);border:1px solid #ffffff0b}.dash-chart{height:95px;margin-top:12px;border:1px solid #ffffff0b;display:flex;align-items:end;justify-content:space-around;padding:14px}.dash-chart span{width:9%;background:var(--accent);opacity:.65;border-radius:3px 3px 0 0}.dash-chart span:nth-child(1){height:35%}.dash-chart span:nth-child(2){height:52%}.dash-chart span:nth-child(3){height:44%}.dash-chart span:nth-child(4){height:75%}.dash-chart span:nth-child(5){height:60%}.dash-chart span:nth-child(6){height:90%}.dash-chart span:nth-child(7){height:72%}.project-index{position:absolute;left:25px;top:22px;color:var(--accent);font:700 12px "Space Grotesk"}.project-info{padding:55px 45px;display:flex;flex-direction:column;justify-content:center}.project-type{color:var(--accent);font-size:10px;letter-spacing:2px;font-weight:700}.project-info h3{font:700 39px "Space Grotesk";margin:12px 0}.project-info>p:not(.project-type){color:var(--muted);font-size:14px}.tags{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0}.tags span{border:1px solid var(--line);padding:6px 9px;font-size:9px;color:var(--muted)}.project-link{font-size:12px;font-weight:700;display:inline-flex;gap:9px;align-items:center}.project-link i{color:var(--accent)}
+.experience{background:linear-gradient(180deg,var(--surface),transparent)}.timeline{max-width:850px;margin:auto;border-left:1px solid var(--line)}.timeline-item{display:grid;grid-template-columns:125px 20px 1fr;gap:20px;padding:0 0 65px 0;position:relative}.timeline-item:last-child{padding-bottom:0}.time{font:600 10px "Space Grotesk";color:var(--muted);letter-spacing:1px;text-align:right}.timeline-dot{width:9px;height:9px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 6px var(--bg);margin-top:5px}.timeline-item h3{font:600 21px "Space Grotesk";margin-bottom:8px}.timeline-item>div:last-child>p:last-child{font-size:13px;color:var(--muted);max-width:590px}
+.contact{padding-top:70px}.contact-box{text-align:center;position:relative;overflow:hidden;border:1px solid var(--line);padding:90px 30px;background:var(--surface)}.contact-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(199,255,67,.13),transparent 65%);left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none}.contact-box>*:not(.contact-glow){position:relative}.contact-box h2{font:700 clamp(44px,6vw,75px)/1 "Space Grotesk";letter-spacing:-3px}.contact-box>p:not(.eyebrow){color:var(--muted);max-width:500px;margin:20px auto 30px;font-size:14px}.contact-email{font:600 clamp(18px,2.5vw,28px) "Space Grotesk";display:inline-flex;gap:12px;align-items:center;border-bottom:1px solid var(--accent);padding-bottom:8px}.contact-email i{font-size:14px;color:var(--accent)}.contact-socials{display:flex;justify-content:center;gap:30px;margin-top:45px}.contact-socials a{font-size:12px;color:var(--muted);transition:.2s}.contact-socials a:hover{color:var(--accent)}
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:10px}.footer-inner{display:flex;justify-content:space-between;gap:20px}.footer-inner a{color:var(--text)}
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-menu{position:fixed;top:82px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none;flex-direction:column;padding:25px 24px;gap:20px}.nav-menu.open{display:flex}.menu-btn{display:block}.nav-cta{display:none}
+  .hero-grid,.about-grid,.project-feature{grid-template-columns:1fr}.hero{padding-top:130px}.hero-visual{margin-top:35px}.visual-frame{max-width:420px}.about-grid{gap:50px}.project-art{min-height:390px}.project-info{padding:40px}.section-head{align-items:start;flex-direction:column;gap:20px}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 30px,1180px)}.navbar{height:72px}.nav-menu{top:72px}.hero{padding:110px 0 75px}.hero h1{font-size:47px;letter-spacing:-2.5px}.hero-description{font-size:14px}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{justify-content:center}.hero-socials small,.social-line{display:none}.label-one{left:-10px}.label-two{right:-10px}.circle-text{display:none}.scroll-cue{display:none}.section{padding:90px 0}.section-head{margin-bottom:40px}.section-head h2{font-size:42px}.about-cards,.skill-grid{grid-template-columns:1fr}.big-copy{font-size:23px}.project-art{padding:20px;min-height:300px}.dashboard{height:210px}.dash-main{padding:20px}.dash-main h3{font-size:18px}.project-info{padding:30px 24px}.project-info h3{font-size:33px}.timeline-item{grid-template-columns:75px 12px 1fr;gap:12px}.timeline-item h3{font-size:17px}.time{font-size:8px}.contact-box{padding:70px 20px}.contact-box h2{letter-spacing:-2px}.footer-inner{flex-direction:column}.nav-actions{gap:8px}
+}
+'''
+
+js = r'''const body = document.body;
+const header = document.getElementById("header");
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+const themeBtn = document.getElementById("themeBtn");
+const roleText = document.getElementById("roleText");
+
+document.getElementById("year").textContent = new Date().getFullYear();
+
+menuBtn.addEventListener("click", () => {
+  navMenu.classList.toggle("open");
+  menuBtn.innerHTML = navMenu.classList.contains("open")
+    ? '<i class="fa-solid fa-xmark"></i>'
+    : '<i class="fa-solid fa-bars"></i>';
+});
+
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("open");
+    menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+const savedTheme = localStorage.getItem("bikram-theme");
+if (savedTheme === "light") {
+  body.classList.add("light");
+  themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}
+
+themeBtn.addEventListener("click", () => {
+  body.classList.toggle("light");
+  const light = body.classList.contains("light");
+  localStorage.setItem("bikram-theme", light ? "light" : "dark");
+  themeBtn.innerHTML = light
+    ? '<i class="fa-solid fa-sun"></i>'
+    : '<i class="fa-solid fa-moon"></i>';
+});
+
+const roles = ["UI/UX Designer", "Frontend Developer", "Creative Problem Solver", "Digital Experience Builder"];
+let roleIndex = 0, charIndex = 0, deleting = false;
+
+function typeRole() {
+  const current = roles[roleIndex];
+  roleText.textContent = deleting ? current.substring(0, charIndex--) : current.substring(0, charIndex++);
+  let speed = deleting ? 45 : 85;
+
+  if (!deleting && charIndex > current.length) {
+    deleting = true;
+    speed = 1500;
+  } else if (deleting && charIndex < 0) {
+    deleting = false;
+    roleIndex = (roleIndex + 1) % roles.length;
+    charIndex = 0;
+    speed = 400;
+  }
+  setTimeout(typeRole, speed);
+}
+setTimeout(typeRole, 800);
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, {threshold: .12});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const navLinks = document.querySelectorAll(".nav-link");
+const sections = document.querySelectorAll("section[id]");
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => link.classList.toggle("active", link.getAttribute("href") === "#" + entry.target.id));
+    }
+  });
+}, {rootMargin: "-40% 0px -55% 0px"});
+sections.forEach(section => sectionObserver.observe(section));
+
+const cursor = document.querySelector(".cursor-glow");
+window.addEventListener("pointermove", e => {
+  cursor.style.left = e.clientX + "px";
+  cursor.style.top = e.clientY + "px";
+});
+
+document.querySelectorAll("a, button, .mini-card, .skill, .project-art").forEach(el => {
+  el.addEventListener("mouseenter", () => document.body.classList.add("hovering"));
+  el.addEventListener("mouseleave", () => document.body.classList.remove("hovering"));
+});
+'''
+
+(base/"index.html").write_text(html, encoding="utf-8")
+(base/"style.css").write_text(css, encoding="utf-8")
+(base/"script.js").write_text(js, encoding="utf-8")
+
+zip_path = Path("/mnt/data/Bikram_Extraordinary_Portfolio.zip")
+with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as z:
+    for f in base.iterdir():
+        z.write(f, f.name)
+
+print(f"Created: {zip_path}")
+print("Files:", [f.name for f in base.iterdir()])
