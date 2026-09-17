@@ -1,332 +1,424 @@
+/* =========================================================
+   BIKRAM DHAMALA PORTFOLIO
+   Vanilla JavaScript
+========================================================= */
+
+
+/* ================= ELEMENTS ================= */
+
 const body = document.body;
+
 const header = document.getElementById("header");
+
 const menuBtn = document.getElementById("menuBtn");
 const navMenu = document.getElementById("navMenu");
-const navLinks = [...document.querySelectorAll(".nav-link")];
-const sections = [...document.querySelectorAll("section[id]")];
-const revealItems = [...document.querySelectorAll(".reveal")];
-const filterButtons = [...document.querySelectorAll(".filter-btn")];
-const projectCards = [...document.querySelectorAll(".project-card")];
-const contactForm = document.getElementById("contactForm");
-const year = document.getElementById("year");
-const toast = document.getElementById("toast");
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if (year) {
-    year.textContent = new Date().getFullYear();
+const themeBtn = document.getElementById("themeBtn");
+
+const navLinks = document.querySelectorAll(".nav-link");
+
+const filterButtons =
+    document.querySelectorAll(".filter-btn");
+
+const projectCards =
+    document.querySelectorAll(".project-card");
+
+const revealElements =
+    document.querySelectorAll(".reveal");
+
+const contactForm =
+    document.getElementById("contactForm");
+
+const toast =
+    document.getElementById("toast");
+
+const year =
+    document.getElementById("year");
+
+
+/* ================= CURRENT YEAR ================= */
+
+year.textContent = new Date().getFullYear();
+
+
+/* ================= MOBILE MENU ================= */
+
+menuBtn.addEventListener("click", () => {
+
+    navMenu.classList.toggle("open");
+
+    const icon = menuBtn.querySelector("i");
+
+    if (navMenu.classList.contains("open")) {
+
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-xmark");
+
+    } else {
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    }
+
+});
+
+
+/* Close mobile menu after clicking a link */
+
+navLinks.forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        navMenu.classList.remove("open");
+
+        const icon = menuBtn.querySelector("i");
+
+        icon.classList.remove("fa-xmark");
+        icon.classList.add("fa-bars");
+
+    });
+
+});
+
+
+/* ================= THEME ================= */
+
+const savedTheme =
+    localStorage.getItem("portfolio-theme");
+
+if (savedTheme === "light") {
+
+    body.classList.add("light");
+
+    themeBtn.innerHTML =
+        '<i class="fa-solid fa-sun"></i>';
+
 }
+
+
+themeBtn.addEventListener("click", () => {
+
+    body.classList.toggle("light");
+
+    const isLight =
+        body.classList.contains("light");
+
+    localStorage.setItem(
+        "portfolio-theme",
+        isLight ? "light" : "dark"
+    );
+
+    themeBtn.innerHTML = isLight
+
+        ? '<i class="fa-solid fa-sun"></i>'
+
+        : '<i class="fa-solid fa-moon"></i>';
+
+});
+
+
+/* ================= HEADER SCROLL ================= */
+
+function updateHeader() {
+
+    if (window.scrollY > 30) {
+
+        header.classList.add("scrolled");
+
+    } else {
+
+        header.classList.remove("scrolled");
+
+    }
+
+}
+
+window.addEventListener("scroll", updateHeader);
+
+updateHeader();
+
+
+/* ================= ACTIVE NAV ================= */
+
+const sections =
+    document.querySelectorAll("section[id]");
+
+
+function updateActiveNav() {
+
+    let currentSection = "";
+
+    sections.forEach(section => {
+
+        const sectionTop =
+            section.offsetTop - 150;
+
+        const sectionHeight =
+            section.offsetHeight;
+
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionTop + sectionHeight
+        ) {
+
+            currentSection =
+                section.getAttribute("id");
+
+        }
+
+    });
+
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+        if (
+            link.getAttribute("href") ===
+            `#${currentSection}`
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener(
+    "scroll",
+    updateActiveNav
+);
+
+
+/* ================= SCROLL REVEAL ================= */
+
+const observer =
+    new IntersectionObserver(
+        (entries, observer) => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+
+revealElements.forEach(element => {
+
+    observer.observe(element);
+
+});
+
+
+/* ================= PROJECT FILTER ================= */
+
+filterButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const filter =
+            button.dataset.filter;
+
+
+        /* Active button */
+
+        filterButtons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        /* Filter cards */
+
+        projectCards.forEach(card => {
+
+            const category =
+                card.dataset.category;
+
+
+            if (
+                filter === "all" ||
+                category === filter
+            ) {
+
+                card.classList.remove("hide");
+
+            } else {
+
+                card.classList.add("hide");
+
+            }
+
+        });
+
+    });
+
+});
+
+
+/* ================= CONTACT FORM ================= */
+
+contactForm.addEventListener(
+    "submit",
+    function (event) {
+
+        event.preventDefault();
+
+        const name =
+            document.getElementById("name").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const subject =
+            document.getElementById("subject").value.trim();
+
+        const message =
+            document.getElementById("message").value.trim();
+
+
+        if (
+            !name ||
+            !email ||
+            !subject ||
+            !message
+        ) {
+
+            showToast(
+                "Please fill in all fields."
+            );
+
+            return;
+
+        }
+
+
+        /*
+            This is a frontend-only form.
+
+            To actually send emails, connect this form
+            to Formspree, EmailJS, Firebase or your own backend.
+        */
+
+
+        showToast(
+            "Message submitted successfully!"
+        );
+
+
+        contactForm.reset();
+
+    }
+);
+
+
+/* ================= TOAST ================= */
 
 let toastTimer;
 
-function showToast(message) {
-    if (!toast) {
-        return;
-    }
 
-    const text = toast.querySelector("span");
-    if (text) {
-        text.textContent = message;
-    }
+function showToast(message) {
+
+    const toastText =
+        toast.querySelector("span");
+
+    toastText.textContent = message;
 
     toast.classList.add("show");
+
+
     clearTimeout(toastTimer);
 
-    toastTimer = setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2600);
+
+    toastTimer =
+        setTimeout(() => {
+
+            toast.classList.remove("show");
+
+        }, 3000);
+
 }
 
-function setMenuState(isOpen) {
-    if (!navMenu || !menuBtn) {
-        return;
-    }
 
-    navMenu.classList.toggle("is-open", isOpen);
-    menuBtn.classList.toggle("is-active", isOpen);
-    menuBtn.setAttribute("aria-expanded", String(isOpen));
-    body.classList.toggle("menu-open", isOpen && window.innerWidth <= 860);
-}
+/* ================= SMOOTH ANCHOR ================= */
 
-if (menuBtn) {
-    menuBtn.addEventListener("click", () => {
-        const isOpen = !navMenu.classList.contains("is-open");
-        setMenuState(isOpen);
-    });
-}
+document.querySelectorAll(
+    'a[href^="#"]'
+).forEach(anchor => {
 
-navLinks.forEach((link) => {
-    link.addEventListener("click", () => setMenuState(false));
-});
+    anchor.addEventListener(
+        "click",
+        function (event) {
 
-document.addEventListener("click", (event) => {
-    if (!header || !navMenu || window.innerWidth > 860) {
-        return;
-    }
+            const targetId =
+                this.getAttribute("href");
 
-    if (navMenu.classList.contains("is-open") && !header.contains(event.target)) {
-        setMenuState(false);
-    }
-});
-
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-        setMenuState(false);
-    }
-});
-
-function updateHeader() {
-    if (!header) {
-        return;
-    }
-
-    header.classList.toggle("scrolled", window.scrollY > 20);
-}
-
-function updateActiveNav() {
-    if (!sections.length || !navLinks.length) {
-        return;
-    }
-
-    const triggerPoint = window.scrollY + 180;
-    let activeId = sections[0].id;
-
-    sections.forEach((section) => {
-        const top = section.offsetTop;
-        const height = section.offsetHeight;
-
-        if (triggerPoint >= top && triggerPoint < top + height) {
-            activeId = section.id;
-        }
-    });
-
-    navLinks.forEach((link) => {
-        const matches = link.getAttribute("href") === `#${activeId}`;
-        link.classList.toggle("active", matches);
-    });
-}
-
-window.addEventListener("scroll", updateHeader, { passive: true });
-window.addEventListener("scroll", updateActiveNav, { passive: true });
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 860) {
-        setMenuState(false);
-    }
-});
-
-updateHeader();
-updateActiveNav();
-
-if (!prefersReducedMotion.matches && "IntersectionObserver" in window) {
-    const revealObserver = new IntersectionObserver(
-        (entries, observer) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-            });
-        },
-        { threshold: 0.16 }
-    );
-
-    revealItems.forEach((item) => revealObserver.observe(item));
-} else {
-    revealItems.forEach((item) => item.classList.add("is-visible"));
-}
-
-filterButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-        const filter = button.dataset.filter || "all";
-
-        filterButtons.forEach((item) => {
-            item.classList.toggle("active", item === button);
-        });
-
-        projectCards.forEach((card) => {
-            const category = card.dataset.category || "";
-            const visible = filter === "all" || category === filter;
-            card.classList.toggle("is-hidden", !visible);
-        });
-    });
-});
-
-function setMediaPreview(imageId, placeholderId, dataUrl) {
-    const image = document.getElementById(imageId);
-    const placeholder = document.getElementById(placeholderId);
-
-    if (!image || !placeholder) {
-        return;
-    }
-
-    image.src = dataUrl;
-    image.hidden = false;
-    placeholder.hidden = true;
-}
-
-function clearMediaPreview(imageId, placeholderId) {
-    const image = document.getElementById(imageId);
-    const placeholder = document.getElementById(placeholderId);
-
-    if (!image || !placeholder) {
-        return;
-    }
-
-    image.removeAttribute("src");
-    image.hidden = true;
-    placeholder.hidden = false;
-}
-
-const mediaFields = {
-    profile: {
-        inputId: "profileUpload",
-        imageId: "profilePreview",
-        placeholderId: "profilePlaceholder",
-        storageKey: "bikram-portfolio-profile-photo",
-        successMessage: "Profile photo updated."
-    },
-    aurora: {
-        inputId: "auroraUpload",
-        imageId: "auroraPreview",
-        placeholderId: "auroraPlaceholder",
-        storageKey: "bikram-portfolio-aurora-logo",
-        successMessage: "Aurora logo updated."
-    },
-    bonsai: {
-        inputId: "bonsaiUpload",
-        imageId: "bonsaiPreview",
-        placeholderId: "bonsaiPlaceholder",
-        storageKey: "bikram-portfolio-bonsai-logo",
-        successMessage: "Bonsai logo updated."
-    }
-};
-
-function saveMedia(storageKey, dataUrl) {
-    try {
-        localStorage.setItem(storageKey, dataUrl);
-        return true;
-    } catch (error) {
-        return false;
-    }
-}
-
-function loadMedia(storageKey) {
-    try {
-        return localStorage.getItem(storageKey);
-    } catch (error) {
-        return null;
-    }
-}
-
-function removeMedia(storageKey) {
-    try {
-        localStorage.removeItem(storageKey);
-    } catch (error) {
-        return;
-    }
-}
-
-Object.values(mediaFields).forEach((field) => {
-    const savedValue = loadMedia(field.storageKey);
-    if (savedValue) {
-        setMediaPreview(field.imageId, field.placeholderId, savedValue);
-    }
-
-    const input = document.getElementById(field.inputId);
-    if (!input) {
-        return;
-    }
-
-    input.addEventListener("change", () => {
-        const [file] = input.files || [];
-        if (!file) {
-            return;
-        }
-
-        if (!file.type.startsWith("image/")) {
-            showToast("Please choose an image file.");
-            input.value = "";
-            return;
-        }
-
-        const reader = new FileReader();
-
-        reader.onload = () => {
-            const dataUrl = String(reader.result || "");
-
-            if (!dataUrl) {
-                showToast("That image could not be loaded.");
+            if (
+                targetId === "#" ||
+                !targetId
+            ) {
                 return;
             }
 
-            setMediaPreview(field.imageId, field.placeholderId, dataUrl);
 
-            if (saveMedia(field.storageKey, dataUrl)) {
-                showToast(field.successMessage);
-            } else {
-                showToast("Preview added. Use a smaller image if it does not stay after refresh.");
+            const target =
+                document.querySelector(targetId);
+
+
+            if (!target) {
+                return;
             }
-        };
 
-        reader.readAsDataURL(file);
-    });
+
+            event.preventDefault();
+
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+    );
+
 });
 
-document.querySelectorAll("[data-clear-target]").forEach((button) => {
-    button.addEventListener("click", () => {
-        const key = button.getAttribute("data-clear-target");
-        const field = mediaFields[key];
 
-        if (!field) {
-            return;
-        }
+/* ================= BUTTON RIPPLE ================= */
 
-        clearMediaPreview(field.imageId, field.placeholderId);
-        removeMedia(field.storageKey);
+document.querySelectorAll(".btn").forEach(button => {
 
-        const input = document.getElementById(field.inputId);
-        if (input) {
-            input.value = "";
-        }
+    button.addEventListener("click", function () {
 
-        showToast("Preview cleared.");
-    });
-});
-
-if (contactForm) {
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault();
-
-        const name = document.getElementById("name")?.value.trim() || "";
-        const email = document.getElementById("email")?.value.trim() || "";
-        const subject = document.getElementById("subject")?.value.trim() || "";
-        const message = document.getElementById("message")?.value.trim() || "";
-
-        if (!name || !email || !subject || !message) {
-            showToast("Please fill in all fields.");
-            return;
-        }
-
-        const bodyText = [
-            `Name: ${name}`,
-            `Email: ${email}`,
-            "",
-            message
-        ].join("\n");
-
-        const mailto =
-            "mailto:bikram.official77@gmail.com?subject=" +
-            encodeURIComponent(subject) +
-            "&body=" +
-            encodeURIComponent(bodyText);
-
-        showToast("Email draft is opening.");
+        this.style.transform =
+            "scale(0.98)";
 
         setTimeout(() => {
-            window.location.href = mailto;
+
+            this.style.transform = "";
+
         }, 120);
 
-        contactForm.reset();
     });
-}
+
+});
