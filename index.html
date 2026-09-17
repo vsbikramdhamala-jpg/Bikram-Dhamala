@@ -2,1081 +2,705 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta
         name="description"
-        content="Bikram Dhamala — UI/UX Designer and Frontend Developer Portfolio"
+        content="Bikram Dhamala is a UI/UX designer and frontend developer building responsive, modern digital experiences."
     >
-
-    <meta name="author" content="Bikram Dhamala">
-
+    <meta name="theme-color" content="#f4ede4">
+    <meta
+        property="og:title"
+        content="Bikram Dhamala | UI/UX Designer & Frontend Developer"
+    >
+    <meta
+        property="og:description"
+        content="Portfolio for Bikram Dhamala featuring UI/UX design, frontend development, and selected work."
+    >
+    <meta property="og:type" content="website">
     <title>Bikram Dhamala | UI/UX Designer & Frontend Developer</title>
 
-    <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap"
         rel="stylesheet"
     >
-
-    <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    >
-
     <link rel="stylesheet" href="style.css">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Bikram Dhamala",
+            "jobTitle": "UI/UX Designer and Frontend Developer",
+            "email": "mailto:bikram.official77@gmail.com",
+            "url": "https://bikramdhamala.com.np/",
+            "sameAs": [
+                "https://www.linkedin.com/in/biksss-dhamala"
+            ]
+        }
+    </script>
 </head>
-
 <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-aura" aria-hidden="true"></div>
 
-    <!-- ================= HEADER ================= -->
-
-    <header class="header" id="header">
-
-        <nav class="navbar container">
-
-            <a href="#home" class="logo">
-                <span>B</span>D.
+    <header class="site-header" data-header>
+        <div class="container nav-wrap">
+            <a class="brand" href="#home" aria-label="Bikram Dhamala home">
+                B<span>D</span>
             </a>
 
-            <div class="nav-menu" id="navMenu">
+            <button
+                class="menu-toggle"
+                type="button"
+                data-menu-toggle
+                aria-expanded="false"
+                aria-controls="site-nav"
+                aria-label="Open navigation"
+            >
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#skills" class="nav-link">Skills</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#experience" class="nav-link">Experience</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#contact" class="nav-link">Contact</a>
-
-            </div>
-
-            <div class="nav-actions">
-
-                <button
-                    class="theme-btn"
-                    id="themeBtn"
-                    aria-label="Toggle theme"
-                >
-                    <i class="fa-solid fa-moon"></i>
-                </button>
-
-                <button
-                    class="menu-btn"
-                    id="menuBtn"
-                    aria-label="Open menu"
-                >
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-            </div>
-
-        </nav>
-
+            <nav class="site-nav" id="site-nav" data-nav>
+                <a href="#home" class="is-active" data-nav-link>Home</a>
+                <a href="#about" data-nav-link>About</a>
+                <a href="#projects" data-nav-link>Projects</a>
+                <a href="#process" data-nav-link>Process</a>
+                <a href="#services" data-nav-link>Services</a>
+                <a href="#experience" data-nav-link>Experience</a>
+                <a href="#contact" data-nav-link>Contact</a>
+            </nav>
+        </div>
     </header>
 
-
-    <main>
-
-        <!-- ================= HERO ================= -->
-
+    <main id="main">
         <section class="hero section" id="home">
-
-            <div class="hero-bg-circle circle-one"></div>
-            <div class="hero-bg-circle circle-two"></div>
-
             <div class="container hero-grid">
+                <div class="hero-copy reveal">
+                    <p class="eyebrow">Portfolio • UI/UX Designer • Frontend Developer</p>
 
-                <div class="hero-content reveal">
+                    <h1>Bikram Dhamala</h1>
 
-                    <div class="available">
-                        <span></span>
-                        Available for opportunities
-                    </div>
-
-                    <p class="hero-small">
-                        HELLO, I'M
+                    <p class="hero-subtitle">
+                        UI/UX designer, frontend developer, operations
+                        professional, and creative builder.
                     </p>
 
-                    <h1>
-                        Bikram
-                        <span>Dhamala</span>
-                    </h1>
-
-                    <h2>
-                        UI/UX Designer
-                        <span>&</span>
-                        Frontend Developer
-                    </h2>
-
-                    <p class="hero-description">
-                        I create clean, modern and user-friendly digital
-                        experiences by combining creative design with
-                        modern frontend technologies.
+                    <p class="hero-text">
+                        I design clear digital experiences, build responsive
+                        websites, work as Operations Officer at Aurora
+                        Education Foundation Pvt. Ltd since July 2025, and lead
+                        Bonsai Technology as Managing Director.
                     </p>
 
-                    <div class="hero-buttons">
-
-                        <a href="#projects" class="btn btn-primary">
-                            View My Work
-                            <i class="fa-solid fa-arrow-right"></i>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#projects">
+                            See selected work
                         </a>
 
+                        <a class="button button-secondary" href="#contact">
+                            Start a conversation
+                        </a>
                     </div>
 
-                    <div class="social-links">
-
-                        <a
-                            href="https://github.com/"
-                            target="_blank"
-                            aria-label="GitHub"
-                        >
-                            <i class="fa-brands fa-github"></i>
-                        </a>
-
-                        <a
-                            href="https://www.linkedin.com/in/biksss-dhamala"
-                            target="_blank"
-                            aria-label="LinkedIn"
-                        >
-                            <i class="fa-brands fa-linkedin-in"></i>
-                        </a>
-
-                        <a
-                            href="mailto:your@email.com"
-                            aria-label="Email"
-                        >
-                            <i class="fa-solid fa-envelope"></i>
-                        </a>
-
-                    </div>
-
+                    <ul class="hero-tags" aria-label="Core strengths">
+                        <li>Operations Officer</li>
+                        <li>Managing Director</li>
+                        <li>BCA Student</li>
+                    </ul>
                 </div>
 
+                <div class="hero-stage reveal">
+                    <figure class="portrait-stack" data-tilt>
+                        <div class="portrait-orbit" aria-hidden="true"></div>
 
-                <div class="hero-visual reveal">
-
-                    <div class="profile-card">
-
-                        <div class="profile-glow"></div>
-
-                        <div class="profile-placeholder">
-                            <i class="fa-solid fa-user"></i>
-                        </div>
-
-                        <div class="floating-card card-design">
-                            <i class="fa-brands fa-figma"></i>
-                            <div>
-                                <strong>UI/UX</strong>
-                                <small>Design</small>
+                        <div class="portrait-frame">
+                            <!-- Replace the placeholder below with your own img tag when your photo is ready. -->
+                            <div class="portrait-placeholder">
+                                <span>Profile Photo</span>
+                                <small>Add your image here</small>
                             </div>
                         </div>
+                    </figure>
 
-                        <div class="floating-card card-code">
-                            <i class="fa-solid fa-code"></i>
-                            <div>
-                                <strong>Frontend</strong>
-                                <small>Development</small>
-                            </div>
-                        </div>
+                    <div class="hero-card hero-card-main">
+                        <p class="card-label">Current Roles</p>
 
+                        <ul class="hero-list">
+                            <li>UI/UX Designer and Frontend Developer</li>
+                            <li>Operations Officer at Aurora Education Foundation Pvt. Ltd</li>
+                            <li>Managing Director at Bonsai Technology</li>
+                        </ul>
                     </div>
 
+                    <div class="hero-card hero-card-secondary">
+                        <p class="card-label">Available For</p>
+
+                        <p class="availability">
+                            <span></span>
+                            Freelance work, internships, and creative
+                            collaborations.
+                        </p>
+
+                        <a
+                            class="inline-link"
+                            href="mailto:bikram.official77@gmail.com"
+                        >
+                            bikram.official77@gmail.com
+                        </a>
+                    </div>
+
+                    <div class="logo-rack" data-tilt>
+                        <article class="logo-slot">
+                            <p class="logo-slot-title">
+                                Aurora Education Foundation Pvt. Ltd
+                            </p>
+
+                            <!-- Replace the placeholder below with the Aurora logo image when available. -->
+                            <div class="logo-placeholder">
+                                <span>Place Aurora Logo Here</span>
+                            </div>
+                        </article>
+
+                        <article class="logo-slot">
+                            <p class="logo-slot-title">Bonsai Technology</p>
+
+                            <!-- Replace the placeholder below with the Bonsai logo image when available. -->
+                            <div class="logo-placeholder">
+                                <span>Place Bonsai Logo Here</span>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="float-note float-note-left">Aurora</div>
+                    <div class="float-note float-note-right">Bonsai</div>
                 </div>
-
             </div>
-
-            <div class="scroll-down">
-                <span>Scroll to explore</span>
-                <i class="fa-solid fa-arrow-down"></i>
-            </div>
-
         </section>
 
+        <section class="signal-band" aria-label="Highlights">
+            <div class="container signal-grid">
+                <article class="signal-card reveal">
+                    <p class="signal-number">01</p>
+                    <h2>Design that explains itself</h2>
+                    <p>
+                        Clean hierarchy, better spacing, and content that is
+                        easier to scan from the first screen.
+                    </p>
+                </article>
 
-        <!-- ================= ABOUT ================= -->
+                <article class="signal-card reveal">
+                    <p class="signal-number">02</p>
+                    <h2>Code that supports the design</h2>
+                    <p>
+                        Responsive frontend structure, accessible markup, and
+                        interactions that stay lightweight.
+                    </p>
+                </article>
+
+                <article class="signal-card reveal">
+                    <p class="signal-number">03</p>
+                    <h2>Better trust for clients and teams</h2>
+                    <p>
+                        Stronger project writing, clearer contact paths, and a
+                        more professional visual identity.
+                    </p>
+                </article>
+            </div>
+        </section>
 
         <section class="section about" id="about">
+            <div class="container section-head reveal">
+                <p class="eyebrow">About Me</p>
 
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <p class="section-label">ABOUT ME</p>
-
-                    <h2>
-                        Turning ideas into
-                        <span>digital experiences.</span>
-                    </h2>
-
-                </div>
-
-                <div class="about-grid">
-
-                    <div class="about-text reveal">
-
-                        <p class="lead">
-                            I am a BCA student passionate about UI/UX design,
-                            frontend development and graphic design.
-                        </p>
-
-                        <p>
-                            I enjoy transforming ideas into modern,
-                            responsive and user-friendly digital products.
-                            My goal is to build interfaces that are not only
-                            visually attractive but also simple and enjoyable
-                            to use.
-                        </p>
-
-                        <p>
-                            I continuously improve my skills by creating
-                            real-world projects and exploring new technologies
-                            in web development and digital design.
-                        </p>
-
-                        <div class="about-buttons">
-
-                            <a href="#contact" class="text-link">
-                                Let's work together
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="about-stats reveal">
-
-                        <div class="stat-card">
-                            <strong>01</strong>
-                            <span>UI/UX Design</span>
-                        </div>
-
-                        <div class="stat-card">
-                            <strong>02</strong>
-                            <span>Frontend Development</span>
-                        </div>
-
-                        <div class="stat-card">
-                            <strong>03</strong>
-                            <span>Graphic Design</span>
-                        </div>
-
-                        <div class="stat-card">
-                            <strong>04</strong>
-                            <span>Responsive Websites</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
+                <h2>
+                    A student builder focused on useful interfaces, not just
+                    pretty screens.
+                </h2>
             </div>
 
-        </section>
-
-
-        <!-- ================= SKILLS ================= -->
-
-        <section class="section skills-section" id="skills">
-
-            <div class="container">
-
-                <div class="section-heading center reveal">
-
-                    <p class="section-label">MY SKILLS</p>
-
-                    <h2>
-                        Tools I use to
-                        <span>build ideas.</span>
-                    </h2>
-
-                </div>
-
-                <div class="skills-grid">
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon html">
-                            <i class="fa-brands fa-html5"></i>
-                        </div>
-                        <h3>HTML5</h3>
-                        <p>Semantic & accessible web structure</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon css">
-                            <i class="fa-brands fa-css3-alt"></i>
-                        </div>
-                        <h3>CSS3</h3>
-                        <p>Modern responsive interfaces</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon js">
-                            <i class="fa-brands fa-js"></i>
-                        </div>
-                        <h3>JavaScript</h3>
-                        <p>Interactive web functionality</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon figma">
-                            <i class="fa-brands fa-figma"></i>
-                        </div>
-                        <h3>Figma</h3>
-                        <p>UI/UX design & prototyping</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon firebase">
-                            <i class="fa-solid fa-fire"></i>
-                        </div>
-                        <h3>Firebase</h3>
-                        <p>Authentication & database</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon git">
-                            <i class="fa-brands fa-github"></i>
-                        </div>
-                        <h3>Git / GitHub</h3>
-                        <p>Version control & collaboration</p>
-                    </div>
-
-                    <div class="skill-card reveal">
-                        <div class="skill-icon responsive">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                        </div>
-                        <h3>Responsive Design</h3>
-                        <p>Desktop, tablet & mobile</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= PROJECTS ================= -->
-
-        <section class="section projects" id="projects">
-
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <p class="section-label">FEATURED PROJECTS</p>
-
-                    <h2>
-                        Some things I've
-                        <span>built.</span>
-                    </h2>
-
-                    <p>
-                        A selection of projects combining design,
-                        development and problem solving.
+            <div class="container about-grid">
+                <div class="about-copy reveal">
+                    <p class="lead">
+                        I enjoy turning ideas into interfaces that feel modern,
+                        understandable, and easy to use on any screen.
                     </p>
 
+                        <p>
+                            My current work sits between UI/UX design and
+                            frontend development. I like shaping the visual
+                            system first, then translating that thinking into
+                            clean HTML, CSS, and JavaScript.
+                        </p>
+
+                        <p>
+                            Alongside that, I work as Operations Officer at
+                            Aurora Education Foundation Pvt. Ltd and Managing
+                            Director at Bonsai Technology, which helps me bring
+                            both creative and organizational thinking into my
+                            projects.
+                        </p>
+
+                        <p>
+                            As a BCA student, I keep improving by building real
+                            projects, refining layouts, and learning how design
+                            and code work best together.
+                        </p>
+
+                    <a class="button button-secondary" href="#contact">
+                        Let's build something useful
+                    </a>
                 </div>
 
+                <div class="about-panel reveal">
+                    <div class="mini-grid">
+                        <article class="mini-card">
+                            <span>01</span>
+                            <h3>UI/UX Design</h3>
+                            <p>Wireframes, visual structure, and cleaner flow.</p>
+                        </article>
 
-                <div class="filter-buttons reveal">
+                        <article class="mini-card">
+                            <span>02</span>
+                            <h3>Frontend Development</h3>
+                            <p>Responsive layouts with clear, maintainable code.</p>
+                        </article>
 
-                    <button class="filter-btn active" data-filter="all">
+                        <article class="mini-card">
+                            <span>03</span>
+                            <h3>Graphic Support</h3>
+                            <p>Supporting visuals for branding and social media.</p>
+                        </article>
+
+                        <article class="mini-card">
+                            <span>04</span>
+                            <h3>Responsive Thinking</h3>
+                            <p>Desktop, tablet, and mobile experience considered early.</p>
+                        </article>
+                    </div>
+
+                    <div class="tool-cloud" aria-label="Skills and tools">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>Figma</span>
+                        <span>Firebase</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>Responsive Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section projects" id="projects">
+            <div class="container section-head reveal">
+                <p class="eyebrow">Selected Work</p>
+
+                <h2>
+                    A focused set of web and UI/UX work that reflects my
+                    current portfolio.
+                </h2>
+
+                <p class="section-text">
+                    These highlighted pieces keep the portfolio simple and
+                    focused: one classroom web project and one UI/UX project
+                    direction.
+                </p>
+            </div>
+
+            <div class="container">
+                <div class="filters reveal" role="toolbar" aria-label="Project filters">
+                    <button
+                        class="filter-button is-active"
+                        type="button"
+                        data-filter="all"
+                        aria-pressed="true"
+                    >
                         All
                     </button>
 
-                    <button class="filter-btn" data-filter="web">
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="web"
+                        aria-pressed="false"
+                    >
                         Web
                     </button>
 
-                    <button class="filter-btn" data-filter="design">
+                    <button
+                        class="filter-button"
+                        type="button"
+                        data-filter="design"
+                        aria-pressed="false"
+                    >
                         UI/UX
                     </button>
-
                 </div>
 
+                <div class="project-grid" id="projectGrid">
+                    <article class="project-card reveal" data-category="web">
+                        <div class="project-art project-art-classroom" aria-hidden="true">
+                            <div class="project-chrome">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
 
-                <div class="projects-grid">
+                            <div class="project-layout">
+                                <div class="project-pane project-pane-sidebar"></div>
+                                <div class="project-pane project-pane-hero"></div>
 
+                                <div class="project-mini-row">
+                                    <div class="project-chip"></div>
+                                    <div class="project-chip"></div>
+                                    <div class="project-chip"></div>
+                                </div>
+                            </div>
+                        </div>
 
-                    <!-- PROJECT 1 -->
+                        <div class="project-content">
+                            <p class="project-label">Web App • Live</p>
 
-                    <article
-                        class="project-card reveal"
-                        data-category="web"
-                    >
+                            <h3>Classroom Management System</h3>
 
-                        <div class="project-image">
+                            <p>
+                                A classroom platform concept with login flows,
+                                structured navigation, and an organized academic
+                                experience for students and instructors.
+                            </p>
 
-                            <img
-                                src="assets/clickcart.jpg"
-                                alt="ClickCart e-commerce website"
-                            >
+                            <ul class="project-tags" aria-label="Project technologies">
+                                <li>HTML</li>
+                                <li>CSS</li>
+                                <li>JavaScript</li>
+                                <li>Firebase</li>
+                            </ul>
 
-                            <div class="project-overlay">
-
+                            <div class="project-links">
                                 <a
                                     href="https://classroomos.onrender.com/login?callbackUrl=%2F"
-                                    aria-label="View ClickCart project"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                 >
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                    Open live project
                                 </a>
 
+                                <a href="#contact">Discuss this build</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card reveal" data-category="design">
+                        <div class="project-art project-art-figma" aria-hidden="true">
+                            <div class="project-chrome">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
 
-                            <span class="project-number">01</span>
-
+                            <div class="project-layout project-layout-design">
+                                <div class="project-pane project-pane-tall"></div>
+                                <div class="project-pane"></div>
+                                <div class="project-pane"></div>
+                                <div class="project-pane project-pane-wide"></div>
+                            </div>
                         </div>
 
                         <div class="project-content">
+                            <p class="project-label">UI/UX • Selected Work</p>
 
-                            <span class="project-type">
-                             Classroom Management System
-                            </span>
-
-                            <h3>Classroom </h3>
+                            <h3>UI/UX Design Projects</h3>
 
                             <p>
-                                A modern Nepal-focused e-commerce platform
-                                designed for a smooth and responsive shopping
-                                experience.
+                                Interface explorations, wireframes, and screen
+                                systems that help ideas move from rough concept
+                                to a cleaner, more polished direction before
+                                development starts.
                             </p>
 
-                            <div class="tech-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                                <span>Firebase</span>
-                            </div>
+                            <ul class="project-tags" aria-label="Project technologies">
+                                <li>Figma</li>
+                                <li>Wireframes</li>
+                                <li>Prototype Thinking</li>
+                                <li>Visual Systems</li>
+                            </ul>
 
                             <div class="project-links">
-
-                                <a href="https://classroomos.onrender.com/login?callbackUrl=%2F" class="text-link">
-                                    Live Demo
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-
-                                <a href="#" class="text-link">
-                                    GitHub
-                                    <i class="fa-brands fa-github"></i>
-                                </a>
-
+                                <a href="#contact">Ask for a case study</a>
+                                <span class="project-note">Add a Figma or Behance link here later.</span>
                             </div>
-
                         </div>
-
                     </article>
-
-
-                    <!-- PROJECT 2 -->
-
-                   
-
-
-                    <!-- PROJECT 3 -->
-
-                    <article
-                        class="project-card reveal"
-                        data-category="web"
-                    >
-
-                        <div class="project-image">
-
-                            <img
-                                src="assets/anveshan.jpg"
-                                alt="Anveshan digital services website"
-                            >
-
-                            <div class="project-overlay">
-
-                                <a
-                                    href="#"
-                                    aria-label="View Anveshan project"
-                                >
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </a>
-
-                            </div>
-
-                            <span class="project-number">03</span>
-
-                        </div>
-
-                        <div class="project-content">
-
-                            <span class="project-type">
-                                Information Technology
-                            </span>
-
-                            <h3>Bonsai Technology</h3>
-
-                            <p>
-                                A digital and creative services platform
-                                focused on modern web and creative solutions.
-                            </p>
-
-                            <div class="tech-tags">
-                                <span>HTML</span>
-                                <span>CSS</span>
-                                <span>JavaScript</span>
-                            </div>
-
-                            <div class="project-links">
-
-                                <a href="#" class="text-link">
-                                    Live Demo
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-
-                                <a href="#" class="text-link">
-                                    GitHub
-                                    <i class="fa-brands fa-github"></i>
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- PROJECT 4 -->
-
-                    <article
-                        class="project-card reveal"
-                        data-category="design"
-                    >
-
-                        <div class="project-image">
-
-                            <img
-                                src="assets/ui-project.jpg"
-                                alt="Figma UI UX project"
-                            >
-
-                            <div class="project-overlay">
-
-                                <a
-                                    href="#"
-                                    aria-label="View UI UX project"
-                                >
-                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                                </a>
-
-                            </div>
-
-                            <span class="project-number">04</span>
-
-                        </div>
-
-                        <div class="project-content">
-
-                            <span class="project-type">
-                                UI / UX DESIGN
-                            </span>
-
-                            <h3>Figma UI Projects</h3>
-
-                            <p>
-                                A collection of modern interface designs,
-                                wireframes and interactive prototypes created
-                                in Figma.
-                            </p>
-
-                            <div class="tech-tags">
-                                <span>Figma</span>
-                                <span>UI/UX</span>
-                                <span>Prototype</span>
-                            </div>
-
-                            <div class="project-links">
-
-                                <a href="#" class="text-link">
-                                    Case Study
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-
-                                <a href="#" class="text-link">
-                                    Figma
-                                    <i class="fa-brands fa-figma"></i>
-                                </a>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
                 </div>
-
             </div>
-
         </section>
 
+        <section class="section process" id="process">
+            <div class="container section-head reveal">
+                <p class="eyebrow">Process</p>
 
-        <!-- ================= EXPERIENCE ================= -->
-
-        <section class="section experience" id="experience">
-
-            <div class="container">
-
-                <div class="section-heading center reveal">
-
-                    <p class="section-label">MY JOURNEY</p>
-
-                    <h2>
-                        Education &
-                        <span>Experience.</span>
-                    </h2>
-
-                </div>
-
-                <div class="timeline">
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-content">
-
-                            <span class="timeline-date">
-                                PRESENT
-                            </span>
-
-                            <h3>Bachelor of Computer Applications</h3>
-
-                            <h4>BCA Student</h4>
-
-                            <p>
-                                Studying computer applications with a focus
-                                on programming, web technologies, databases
-                                and software development.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-content">
-
-                            <span class="timeline-date">
-                                PROJECT EXPERIENCE
-                            </span>
-
-                            <h3>Frontend Development</h3>
-
-                            <h4>Personal & Academic Projects</h4>
-
-                            <p>
-                                Developed responsive websites and web
-                                applications using HTML, CSS, JavaScript
-                                and Firebase.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="timeline-item reveal">
-
-                        <div class="timeline-dot"></div>
-
-                        <div class="timeline-content">
-
-                            <span class="timeline-date">
-                                DESIGN EXPERIENCE
-                            </span>
-
-                            <h3>UI/UX & Graphic Design</h3>
-
-                            <h4>Independent Projects</h4>
-
-                            <p>
-                                Designed interfaces, prototypes, graphics
-                                and digital experiences using Figma and
-                                modern design principles.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
+                <h2>
+                    A better portfolio shows how the work is approached, not
+                    only what gets finished.
+                </h2>
             </div>
 
+            <div class="container process-grid">
+                <article class="process-card reveal">
+                    <span>01</span>
+                    <h3>Understand the goal</h3>
+                    <p>
+                        Start with the audience, the message, and the action the
+                        page should lead people toward.
+                    </p>
+                </article>
+
+                <article class="process-card reveal">
+                    <span>02</span>
+                    <h3>Shape the layout</h3>
+                    <p>
+                        Build hierarchy through sections, spacing, and visual
+                        rhythm before adding decorative detail.
+                    </p>
+                </article>
+
+                <article class="process-card reveal">
+                    <span>03</span>
+                    <h3>Develop it cleanly</h3>
+                    <p>
+                        Translate the design into responsive frontend code that
+                        stays readable and practical to maintain.
+                    </p>
+                </article>
+
+                <article class="process-card reveal">
+                    <span>04</span>
+                    <h3>Refine the experience</h3>
+                    <p>
+                        Improve interaction, accessibility, and clarity until
+                        the final result feels polished and easier to trust.
+                    </p>
+                </article>
+            </div>
         </section>
-
-
-        <!-- ================= SERVICES ================= -->
 
         <section class="section services" id="services">
+            <div class="container section-head reveal">
+                <p class="eyebrow">Services</p>
 
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <p class="section-label">WHAT I DO</p>
-
-                    <h2>
-                        Services I can
-                        <span>provide.</span>
-                    </h2>
-
-                </div>
-
-                <div class="services-grid">
-
-                    <div class="service-card reveal">
-
-                        <div class="service-icon">
-                            <i class="fa-solid fa-pen-ruler"></i>
-                        </div>
-
-                        <span>01</span>
-
-                        <h3>UI/UX Design</h3>
-
-                        <p>
-                            Clean, intuitive and user-focused interfaces
-                            designed for websites and applications.
-                        </p>
-
-                    </div>
-
-
-                    <div class="service-card reveal">
-
-                        <div class="service-icon">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-
-                        <span>02</span>
-
-                        <h3>Frontend Development</h3>
-
-                        <p>
-                            Responsive and interactive websites built with
-                            modern HTML, CSS and JavaScript.
-                        </p>
-
-                    </div>
-
-
-                    <div class="service-card reveal">
-
-                        <div class="service-icon">
-                            <i class="fa-solid fa-laptop-code"></i>
-                        </div>
-
-                        <span>03</span>
-
-                        <h3>Website Design</h3>
-
-                        <p>
-                            Professional website layouts designed around
-                            usability, branding and performance.
-                        </p>
-
-                    </div>
-
-
-                    <div class="service-card reveal">
-
-                        <div class="service-icon">
-                            <i class="fa-solid fa-palette"></i>
-                        </div>
-
-                        <span>04</span>
-
-                        <h3>Graphic Design</h3>
-
-                        <p>
-                            Creative visual designs for digital platforms,
-                            social media and branding.
-                        </p>
-
-                    </div>
-
-
-                    <div class="service-card reveal">
-
-                        <div class="service-icon">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </div>
-
-                        <span>05</span>
-
-                        <h3>E-commerce Development</h3>
-
-                        <p>
-                            Responsive online stores with product,
-                            authentication and database functionality.
-                        </p>
-
-                    </div>
-
-                </div>
-
+                <h2>
+                    What I can help design, build, and improve.
+                </h2>
             </div>
 
+            <div class="container services-grid">
+                <article class="service-card reveal">
+                    <span>01</span>
+                    <h3>UI/UX Design</h3>
+                    <p>
+                        Cleaner interfaces, better flow, and layouts built for
+                        understanding rather than clutter.
+                    </p>
+                </article>
+
+                <article class="service-card reveal">
+                    <span>02</span>
+                    <h3>Portfolio & Landing Pages</h3>
+                    <p>
+                        Personal sites and service pages with strong messaging,
+                        visual identity, and responsive behavior.
+                    </p>
+                </article>
+
+                <article class="service-card reveal">
+                    <span>03</span>
+                    <h3>Frontend Development</h3>
+                    <p>
+                        Semantic HTML, modern CSS, and JavaScript interactions
+                        that stay lightweight and purposeful.
+                    </p>
+                </article>
+
+                <article class="service-card reveal">
+                    <span>04</span>
+                    <h3>Graphic Design Support</h3>
+                    <p>
+                        Supporting creative assets for social content, branding
+                        direction, and visual presentation.
+                    </p>
+                </article>
+            </div>
         </section>
 
+        <section class="section journey" id="experience">
+            <div class="container section-head reveal">
+                <p class="eyebrow">Experience</p>
 
-       
+                <h2>
+                    Professional roles and ongoing learning that shape the work
+                    I do today.
+                </h2>
+            </div>
 
-        <!-- ================= CONTACT ================= -->
+            <div class="container timeline">
+                <article class="timeline-item reveal">
+                    <p class="timeline-meta">Since July 2025</p>
+                    <h3>Operations Officer</h3>
+                    <p class="timeline-company">Aurora Education Foundation Pvt. Ltd</p>
+                    <p>
+                        Supporting operations, coordination, planning, and
+                        day-to-day workflow management in an education-focused
+                        organization.
+                    </p>
+                </article>
+
+                <article class="timeline-item reveal">
+                    <p class="timeline-meta">Current Role</p>
+                    <h3>Managing Director</h3>
+                    <p class="timeline-company">Bonsai Technology</p>
+                    <p>
+                        Leading direction, decision making, and coordination for
+                        technology and digital work.
+                    </p>
+                </article>
+
+                <article class="timeline-item reveal">
+                    <p class="timeline-meta">Education</p>
+                    <h3>Bachelor of Computer Applications</h3>
+                    <p class="timeline-company">BCA Student</p>
+                    <p>
+                        Growing through programming, web technologies,
+                        databases, and practical problem solving while building
+                        real projects.
+                    </p>
+                </article>
+            </div>
+        </section>
 
         <section class="section contact" id="contact">
-
-            <div class="container">
-
-                <div class="section-heading center reveal">
-
-                    <p class="section-label">GET IN TOUCH</p>
+            <div class="container contact-grid">
+                <div class="contact-copy reveal">
+                    <p class="eyebrow">Contact</p>
 
                     <h2>
-                        Let's create something
-                        <span>great together.</span>
+                        Have a project, internship, or idea to build?
                     </h2>
 
-                    <p>
-                        Have a project, idea or opportunity?
-                        Send me a message.
+                    <p class="section-text">
+                        The fastest way to reach me is by email. You can also
+                        connect through LinkedIn for collaboration and
+                        opportunities.
                     </p>
 
-                </div>
-
-
-                <div class="contact-grid">
-
-                    <div class="contact-info reveal">
-
+                    <div class="contact-stack">
                         <a
-                            href="mailto:your@email.com"
                             class="contact-item"
+                            href="mailto:bikram.official77@gmail.com"
                         >
-
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-
-                            <div>
-                                <span>Email</span>
-                                <strong>bikram.official77@gmail.com</strong>
-                            </div>
-
+                            <span>Email</span>
+                            <strong>bikram.official77@gmail.com</strong>
                         </a>
 
-
                         <a
-                            href="https://github.com/"
-                            target="_blank"
                             class="contact-item"
-                        >
-
-                            <div class="contact-icon">
-                                <i class="fa-brands fa-github"></i>
-                            </div>
-
-                            <div>
-                                <span>GitHub</span>
-                                <strong>github.com/yourusername</strong>
-                            </div>
-
-                        </a>
-
-
-                        <a
                             href="https://www.linkedin.com/in/biksss-dhamala"
                             target="_blank"
-                            class="contact-item"
+                            rel="noopener noreferrer"
                         >
-
-                            <div class="contact-icon">
-                                <i class="fa-brands fa-linkedin-in"></i>
-                            </div>
-
-                            <div>
-                                <span>LinkedIn</span>
-                                <strong>linkedin.com/in/yourprofile</strong>
-                            </div>
-
+                            <span>LinkedIn</span>
+                            <strong>linkedin.com/in/biksss-dhamala</strong>
                         </a>
 
+                        <div class="contact-item contact-item-static">
+                            <span>Availability</span>
+                            <strong>Open to freelance work, internships, and collaborations.</strong>
+                        </div>
                     </div>
-
-
-                    <form class="contact-form reveal" id="contactForm">
-
-                        <div class="input-row">
-
-                            <div class="input-group">
-
-                                <label for="name">
-                                    Your Name
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    placeholder="Enter your name"
-                                    required
-                                >
-
-                            </div>
-
-
-                            <div class="input-group">
-
-                                <label for="email">
-                                    Email Address
-                                </label>
-
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    placeholder="you@example.com"
-                                    required
-                                >
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="input-group">
-
-                            <label for="subject">
-                                Subject
-                            </label>
-
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                placeholder="Project / Opportunity"
-                                required
-                            >
-
-                        </div>
-
-
-                        <div class="input-group">
-
-                            <label for="message">
-                                Message
-                            </label>
-
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="6"
-                                placeholder="Tell me about your project..."
-                                required
-                            ></textarea>
-
-                        </div>
-
-
-                        <button
-                            type="submit"
-                            class="btn btn-primary submit-btn"
-                        >
-                            Send Message
-                            <i class="fa-solid fa-paper-plane"></i>
-                        </button>
-
-                    </form>
-
                 </div>
 
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <label class="field">
+                        <span>Your name</span>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </label>
+
+                    <div class="field-row">
+                        <label class="field">
+                            <span>Email address</span>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="you@example.com"
+                                required
+                            >
+                        </label>
+
+                        <label class="field">
+                            <span>Project type</span>
+                            <input
+                                type="text"
+                                id="project"
+                                name="project"
+                                placeholder="Portfolio, landing page, redesign..."
+                                required
+                            >
+                        </label>
+                    </div>
+
+                    <label class="field">
+                        <span>Message</span>
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="7"
+                            placeholder="Tell me a little about your idea or project."
+                            required
+                        ></textarea>
+                    </label>
+
+                    <p class="form-note">
+                        This form opens your email app with the message
+                        pre-filled. Later, it can be connected to a service like
+                        Formspree or EmailJS for direct submission.
+                    </p>
+
+                    <button class="button button-primary" type="submit">
+                        Send project message
+                    </button>
+
+                    <p class="form-feedback" id="formFeedback" aria-live="polite"></p>
+                </form>
             </div>
-
         </section>
-
     </main>
 
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="footer">
-
-        <div class="container footer-content">
-
+    <footer class="site-footer">
+        <div class="container footer-row">
             <div>
-
-                <a href="#home" class="logo">
-                    <span>B</span>D.
-                </a>
-
-                <p>
-                    UI/UX Designer & Frontend Developer.
-                </p>
-
+                <p class="footer-name">Bikram Dhamala</p>
+                <p class="footer-role">UI/UX Designer • Frontend Developer</p>
             </div>
 
-
-            <div class="footer-social">
-
-                <a href="https://github.com/" target="_blank">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
-                <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-
-                <a href="mailto:your@email.com">
-                    <i class="fa-solid fa-envelope"></i>
-                </a>
-
-            </div>
-
+            <a class="footer-top" href="#home">Back to top</a>
         </div>
-
 
         <div class="container footer-bottom">
-
-            <p>
-                © <span id="year"></span> Bikram Dhamala.
-                All rights reserved.
-            </p>
-
-            <a href="#home">
-                Back to top
-                <i class="fa-solid fa-arrow-up"></i>
-            </a>
-
+            <p>© <span data-year></span> Bikram Dhamala. Built with HTML, CSS, and JavaScript.</p>
         </div>
-
     </footer>
 
-
-    <!-- Toast -->
-    <div class="toast" id="toast">
-        <i class="fa-solid fa-circle-check"></i>
-        <span>Message submitted successfully!</span>
-    </div>
-
-
     <script src="script.js"></script>
-
 </body>
 </html>
