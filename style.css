@@ -34,19 +34,18 @@
 /* ================= LIGHT MODE ================= */
 
 body.light {
-    --bg: #f5f5f5;
+    --bg: #f1f3f6;
     --bg-soft: #ffffff;
     --card: #ffffff;
-    --card-hover: #eeeeee;
+    --card-hover: #e5e7eb;
 
-    --text: #111111;
-    --text-soft: #4a4a4a;
+    --text: #111827;
+    --text-soft: #374151;
 
-    --border: rgba(0, 0, 0, 0.18);
+    --border: rgba(17, 24, 39, 0.18);
 
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    --shadow: 0 12px 35px rgba(0, 0, 0, 0.14);
 }
-
 
 /* ================= RESET ================= */
 
