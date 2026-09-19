@@ -48,9 +48,9 @@ body.light .header{background:rgba(245,245,240,.88)}
 .hero-actions{display:flex;gap:12px;margin:30px 0}.btn{display:inline-flex;align-items:center;gap:11px;padding:14px 20px;border-radius:8px;font-weight:700;font-size:13px;transition:.3s}.btn.primary{background:var(--accent);color:#0a0c08}.btn.primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(199,255,67,.18)}.btn.ghost{border:1px solid var(--line);background:rgba(255,255,255,.02)}.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
 .hero-socials{display:flex;align-items:center;gap:14px;color:var(--muted)}.hero-socials a{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;transition:.25s}.hero-socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}.social-line{width:45px;height:1px;background:var(--line)}.hero-socials small{font-size:11px}
 .hero-visual{display:flex;justify-content:center}.visual-frame{width:min(470px,100%);aspect-ratio:4/5;position:relative;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.05),rgba(255,255,255,.015));box-shadow:var(--shadow);overflow:visible;transform:rotate(2deg);transition:transform .5s}.visual-frame:hover{transform:rotate(0) translateY(-7px)}
-
-.portrait-area{position:absolute;inset:48px 0 0;background:radial-gradient(circle at 50% 38%,rgba(199,255,67,.14),transparent 34%),linear-gradient(145deg,#171a20,#0c0e12);display:grid;place-items:center;overflow:hidden}.portrait-placeholder{text-align:center;transform:translateY(-8px)}.initial{font:700 220px/.8 "Space Grotesk";color:transparent;-webkit-text-stroke:1px rgba(199,255,67,.5);text-shadow:0 0 70px rgba(199,255,67,.08)}.portrait-placeholder span{font-size:10px;letter-spacing:6px;color:#7d818a}@keyframes scan{0%,100%{top:25%}50%{top:75%}}
-
+.frame-top{height:48px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 18px;color:var(--muted);font-size:10px;letter-spacing:1px}.frame-top span{display:flex;gap:5px}.frame-top i{width:7px;height:7px;border-radius:50%;border:1px solid var(--muted)}
+.portrait-area{position:absolute;inset:48px 0 0;background:radial-gradient(circle at 50% 38%,rgba(199,255,67,.14),transparent 34%),linear-gradient(145deg,#171a20,#0c0e12);display:grid;place-items:center;overflow:hidden}.portrait-placeholder{text-align:center;transform:translateY(-8px)}.initial{font:700 220px/.8 "Space Grotesk";color:transparent;-webkit-text-stroke:1px rgba(199,255,67,.5);text-shadow:0 0 70px rgba(199,255,67,.08)}.portrait-placeholder span{font-size:10px;letter-spacing:6px;color:#7d818a}.scan{position:absolute;left:0;right:0;top:45%;height:1px;background:var(--accent);box-shadow:0 0 18px var(--accent);opacity:.25;animation:scan 4s ease-in-out infinite}@keyframes scan{0%,100%{top:25%}50%{top:75%}}
+.floating-label{position:absolute;z-index:3;display:flex;gap:10px;align-items:center;padding:12px 14px;background:rgba(15,17,22,.92);border:1px solid var(--line);backdrop-filter:blur(12px);box-shadow:var(--shadow);font-size:12px}.floating-label i{font-size:18px;color:var(--accent)}.floating-label small,.floating-label b{display:block}.floating-label small{color:var(--muted);font-size:9px}.label-one{left:-35px;top:27%}.label-two{right:-34px;bottom:22%}.circle-text{position:absolute;right:-55px;top:-22px;width:110px;height:110px;border:1px dashed var(--accent);border-radius:50%;font-size:8px;letter-spacing:2px;color:var(--accent);display:grid;place-items:center;text-align:center;padding:20px;transform:rotate(-20deg)}
 .scroll-cue{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--muted);font-size:9px;letter-spacing:2px}.scroll-cue i{color:var(--accent);animation:down 1.5s infinite}@keyframes down{50%{transform:translateY(5px)}}
 .marquee{overflow:hidden;border-block:1px solid var(--line);padding:17px 0;white-space:nowrap}.marquee-track{display:inline-flex;gap:35px;align-items:center;animation:marquee 25s linear infinite;font:600 13px "Space Grotesk";letter-spacing:2px}.marquee i{color:var(--accent);font-style:normal}@keyframes marquee{to{transform:translateX(-50%)}}
 .section{padding:130px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:65px}.section-head.center{display:block;text-align:center}.section-head h2{font:700 clamp(38px,5vw,65px)/1.03 "Space Grotesk";letter-spacing:-2.5px}.section-intro{max-width:370px;color:var(--muted);font-size:15px}
@@ -68,7 +68,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   .hero-grid,.about-grid,.project-feature{grid-template-columns:1fr}.hero{padding-top:130px}.hero-visual{margin-top:35px}.visual-frame{max-width:420px}.about-grid{gap:50px}.project-art{min-height:390px}.project-info{padding:40px}.section-head{align-items:start;flex-direction:column;gap:20px}
 }
 @media(max-width:600px){
-  .container{width:min(100% - 30px,1180px)}.navbar{height:72px}.nav-menu{top:72px}.hero{padding:110px 0 75px}.hero h1{font-size:47px;letter-spacing:-2.5px}.hero-description{font-size:14px}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{justify-content:center}.hero-socials small,.social-line{display:none}.scroll-cue{display:none}.section{padding:90px 0}.section-head{margin-bottom:40px}.section-head h2{font-size:42px}.about-cards,.skill-grid{grid-template-columns:1fr}.big-copy{font-size:23px}.project-art{padding:20px;min-height:300px}.dashboard{height:210px}.dash-main{padding:20px}.dash-main h3{font-size:18px}.project-info{padding:30px 24px}.project-info h3{font-size:33px}.timeline-item{grid-template-columns:75px 12px 1fr;gap:12px}.timeline-item h3{font-size:17px}.time{font-size:8px}.contact-box{padding:70px 20px}.contact-box h2{letter-spacing:-2px}.footer-inner{flex-direction:column}.nav-actions{gap:8px}
+  .container{width:min(100% - 30px,1180px)}.navbar{height:72px}.nav-menu{top:72px}.hero{padding:110px 0 75px}.hero h1{font-size:47px;letter-spacing:-2.5px}.hero-description{font-size:14px}.hero-actions{flex-direction:column;align-items:stretch}.hero-actions .btn{justify-content:center}.hero-socials small,.social-line{display:none}.label-one{left:-10px}.label-two{right:-10px}.circle-text{display:none}.scroll-cue{display:none}.section{padding:90px 0}.section-head{margin-bottom:40px}.section-head h2{font-size:42px}.about-cards,.skill-grid{grid-template-columns:1fr}.big-copy{font-size:23px}.project-art{padding:20px;min-height:300px}.dashboard{height:210px}.dash-main{padding:20px}.dash-main h3{font-size:18px}.project-info{padding:30px 24px}.project-info h3{font-size:33px}.timeline-item{grid-template-columns:75px 12px 1fr;gap:12px}.timeline-item h3{font-size:17px}.time{font-size:8px}.contact-box{padding:70px 20px}.contact-box h2{letter-spacing:-2px}.footer-inner{flex-direction:column}.nav-actions{gap:8px}
 }
 
 
@@ -148,35 +148,30 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   transition:.25s;
 }
 .photo-dot.active{background:var(--accent);box-shadow:0 0 10px rgba(199,255,67,.6)}
-
-
-
-
-
-@media(max-width:600px){
-  
-  
-  .photo-controls{bottom:9px}
-  
+.photo-upload{
+  position:absolute; z-index:6; right:14px; bottom:14px;
 }
-
-
-/* Clean hero photo + organization marks */
-.visual-frame{overflow:hidden;transform:rotate(0)}
-.visual-frame:hover{transform:translateY(-7px)}
-.photo-carousel{inset:0}
-.photo-slide{background:#0b0d11}
-.photo-slide img{object-position:center}
-.hero-name{display:inline-block;color:var(--text);font-size:1.12em;letter-spacing:-5px;margin-bottom:3px}
-.brand-strip{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px}
-.brand-item{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:8px;color:var(--muted);font-size:10px;transition:.25s}
-.brand-item:hover{border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
-.brand-item img{width:20px;height:20px;object-fit:contain;border-radius:4px;background:#fff;padding:2px}
-.brand-monogram{width:20px;height:20px;display:grid;place-items:center;border-radius:4px;background:var(--accent);color:#0a0c08;font:700 8px "Space Grotesk";letter-spacing:-.5px}
+.photo-upload label{
+  display:inline-flex; align-items:center; gap:7px;
+  padding:8px 11px; border:1px solid rgba(255,255,255,.12);
+  background:rgba(8,9,12,.74); backdrop-filter:blur(10px);
+  color:#dfe2e8; border-radius:7px; cursor:pointer;
+  font-size:9px; font-weight:700; letter-spacing:.6px;
+  transition:.25s;
+}
+.photo-upload label:hover{border-color:var(--accent);color:var(--accent)}
+.photo-upload input{display:none}
+.photo-note{
+  position:absolute; z-index:4; left:14px; top:14px;
+  padding:6px 9px; border:1px solid rgba(255,255,255,.1);
+  background:rgba(8,9,12,.62); color:#aeb2bb;
+  border-radius:6px; font-size:8px; letter-spacing:.5px;
+}
 @media(max-width:600px){
-  .hero-name{letter-spacing:-3px}
-  .brand-strip{gap:8px}
-  .brand-item{font-size:9px;padding:6px 8px}
+  .photo-upload{right:9px;bottom:9px}
+  .photo-upload label{padding:7px 9px;font-size:8px}
+  .photo-controls{bottom:9px}
+  .photo-note{left:9px;top:9px}
 }
 
 </style>
@@ -222,7 +217,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
           <div class="availability"><span></span> Available for opportunities</div>
           <p class="eyebrow">HELLO, I'M BIKRAM</p>
 
-          <h1><span class="hero-name">Bikram</span><br>Designing digital<br><span>experiences</span> that matter.</h1>
+          <h1>Building digital<br><span>experiences</span> that matter.</h1>
 
           <p class="hero-role">
             <span id="roleText">UI/UX Designer</span><span class="blink">_</span>
@@ -238,22 +233,6 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
             <a href="#contact" class="btn ghost">Let's Connect</a>
           </div>
 
-
-          <div class="brand-strip" aria-label="Organizations">
-            <a class="brand-item" href="https://aurorafoundationaf.com/" target="_blank" rel="noopener">
-              <img src="https://www.google.com/s2/favicons?sz=128&domain=aurorafoundationaf.com" alt="Aurora Education Foundation logo">
-              <span>Aurora Education Foundation</span>
-            </a>
-            <a class="brand-item" href="https://www.instagram.com/bonsaitechnologies/" target="_blank" rel="noopener">
-              <span class="brand-monogram">BT</span>
-              <span>Bonsai Technologies</span>
-            </a>
-            <a class="brand-item" href="https://anveshan.dev/" target="_blank" rel="noopener">
-              <img src="https://www.google.com/s2/favicons?sz=128&domain=anveshan.dev" alt="Anveshan logo">
-              <span>Anveshan</span>
-            </a>
-          </div>
-
           <div class="hero-socials">
             <a href="https://github.com/bikramdhamala" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/in/biksss-dhamala" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -265,22 +244,51 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
 
         <div class="hero-visual reveal">
           <div class="visual-frame">
-<div class="photo-carousel" id="photoCarousel">
-<div class="photo-slides">
+            <div class="frame-top">
+              <span><i></i><i></i><i></i></span>
+              <small>portfolio / 2026</small>
+            </div>
+
+            <div class="photo-carousel" id="photoCarousel">
+              <div class="photo-note"><i class="fa-solid fa-images"></i> 3 PHOTO SLIDES</div>
+
+              <div class="photo-slides">
                 <div class="photo-slide active" data-index="0">
-                  <small>CHOOSE PHOTO 01 FROM GALLERY</small></div><img alt="Bikram portfolio photo 1">
+                  <div class="photo-placeholder"><div class="initial">B</div><small>CHOOSE PHOTO 01 FROM GALLERY</small></div>
+                  <img alt="Bikram portfolio photo 1" hidden>
                 </div>
                 <div class="photo-slide" data-index="1">
-                  <small>CHOOSE PHOTO 02 FROM GALLERY</small></div><img alt="Bikram portfolio photo 2">
+                  <div class="photo-placeholder"><div class="initial">B</div><small>CHOOSE PHOTO 02 FROM GALLERY</small></div>
+                  <img alt="Bikram portfolio photo 2" hidden>
                 </div>
                 <div class="photo-slide" data-index="2">
-                  <small>CHOOSE PHOTO 03 FROM GALLERY</small></div><img alt="Bikram portfolio photo 3">
+                  <div class="photo-placeholder"><div class="initial">B</div><small>CHOOSE PHOTO 03 FROM GALLERY</small></div>
+                  <img alt="Bikram portfolio photo 3" hidden>
                 </div>
               </div>
-</div>
-</div>
-</div>
-</div>
+
+              <div class="photo-controls" aria-label="Photo carousel controls">
+                <button class="photo-arrow" id="photoPrev" aria-label="Previous photo"><i class="fa-solid fa-chevron-left"></i></button>
+                <button class="photo-dot active" data-slide="0" aria-label="Show photo 1"></button>
+                <button class="photo-dot" data-slide="1" aria-label="Show photo 2"></button>
+                <button class="photo-dot" data-slide="2" aria-label="Show photo 3"></button>
+                <button class="photo-arrow" id="photoNext" aria-label="Next photo"><i class="fa-solid fa-chevron-right"></i></button>
+              </div>
+<div class="scan"></div>
+            </div>
+
+            <div class="floating-label label-one">
+              <i class="fa-brands fa-figma"></i>
+              <div><b>UI/UX</b><small>Design</small></div>
+            </div>
+
+            <div class="floating-label label-two">
+              <i class="fa-solid fa-code"></i>
+              <div><b>Frontend</b><small>Development</small></div>
+            </div>
+
+            <div class="circle-text">CREATIVE • DIGITAL • FUTURE • </div>
+          </div>
         </div>
       </div>
 
@@ -423,7 +431,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   <footer>
     <div class="container footer-inner">
       <span>© <span id="year"></span> Bikram Dhamala</span>
-      <span>Designed & built with curiosity.</span><span>Personal portfolio · 2026</span>
+      <span>Designed & built with curiosity.</span><span>Hero photos are configured by the site owner.</span>
       <a href="#home">Back to top ↑</a>
     </div>
   </footer>
@@ -532,10 +540,6 @@ document.getElementById("photoNext").addEventListener("click", () => showPhoto(p
 photoDots.forEach(dot => dot.addEventListener("click", () => showPhoto(Number(dot.dataset.slide))));
 
 loadHeroPhotos();
-
-let autoPhotoTimer = setInterval(() => {
-  showPhoto(photoIndex + 1);
-}, 3000);
 
 // Optional: drag/touch swipe on the photo area.
 let touchStartX = null;
