@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About — Bikram Dhamala">
+  <meta name="author" content="Bikram Dhamala">
+  <title>About — Bikram Dhamala</title>
+  
+<style>
+
+:root{
+  --bg:#08090c; --surface:#101217; --surface2:#15171e;
+  --text:#f5f5f7; --muted:#9a9da8; --line:rgba(255,255,255,.09);
+  --accent:#c7ff43; --accent2:#7dffb2;
+  --shadow:0 25px 80px rgba(0,0,0,.35);
+}
+body.light{
+  --bg:#f5f5f0; --surface:#fff; --surface2:#ecece7;
+  --text:#111217; --muted:#62656d; --line:rgba(0,0,0,.09);
+  --accent:#4f7000; --accent2:#2f7a55;
+  --shadow:0 25px 70px rgba(0,0,0,.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:"DM Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+img{max-width:100%}
+.container{width:min(1180px,calc(100% - 48px));margin:auto}
+.noise{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E")}
+.cursor-glow{position:fixed;width:420px;height:420px;border-radius:50%;background:radial-gradient(circle,rgba(199,255,67,.09),transparent 65%);transform:translate(-50%,-50%);pointer-events:none;z-index:0}
+.header{position:fixed;top:0;left:0;width:100%;z-index:50;background:rgba(8,9,12,.72);backdrop-filter:blur(18px);border-bottom:1px solid transparent;transition:.3s}
+body.light .header{background:rgba(245,245,240,.9)}
+.header.scrolled{border-color:var(--line)}
+.navbar{height:82px;display:flex;align-items:center;justify-content:space-between}
+.logo{font:700 24px "Space Grotesk";letter-spacing:-1px}
+.logo span{display:inline-grid;place-items:center;width:35px;height:35px;border:1px solid var(--accent);border-radius:50%;color:var(--accent);margin-right:2px}
+.logo em{color:var(--accent);font-style:normal}
+.nav-menu{display:flex;gap:28px;margin-left:auto;margin-right:38px}
+.nav-link{font-size:13px;color:var(--muted);position:relative;transition:.25s}
+.nav-link:hover,.nav-link.active{color:var(--text)}
+.nav-link.active:after{content:"";position:absolute;left:0;right:0;bottom:-9px;height:2px;background:var(--accent)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.theme-btn,.menu-btn{border:1px solid var(--line);background:var(--surface);color:var(--text);width:40px;height:40px;border-radius:50%;cursor:pointer}
+.nav-cta{font-size:13px;font-weight:700;background:var(--accent);color:#0a0c08;padding:11px 17px;border-radius:99px}
+.nav-cta i{margin-left:6px}
+.menu-btn{display:none}
+
+.page-hero{position:relative;padding:160px 0 90px;overflow:hidden}
+.page-hero::before,.page-hero::after{content:"";position:absolute;border-radius:50%;pointer-events:none}
+.page-hero::before{width:560px;height:560px;right:-240px;top:0;background:radial-gradient(circle,rgba(199,255,67,.13),transparent 68%)}
+.page-hero::after{width:420px;height:420px;left:-260px;bottom:-250px;background:radial-gradient(circle,rgba(125,255,178,.07),transparent 68%)}
+.page-hero-inner{position:relative;z-index:2}
+.eyebrow{font-size:11px;letter-spacing:2.8px;color:var(--accent);font-weight:700;margin-bottom:17px}
+.page-title{font:700 clamp(48px,7vw,88px)/.96 "Space Grotesk";letter-spacing:-4px;max-width:850px}
+.page-title span{color:var(--accent)}
+.page-lead{margin-top:24px;max-width:650px;color:var(--muted);font-size:16px}
+.section{padding:110px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:50px;margin-bottom:55px}
+.section-head.center{display:block;text-align:center}
+.section-head h2{font:700 clamp(38px,5vw,65px)/1.03 "Space Grotesk";letter-spacing:-2.5px}
+.section-head h2 span{color:var(--accent)}
+.section-intro{max-width:390px;color:var(--muted);font-size:15px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:8px;font-weight:700;font-size:13px;transition:.3s}
+.btn.primary{background:var(--accent);color:#0a0c08}
+.btn.primary:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(199,255,67,.18)}
+.btn.ghost{border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+
+.home-hero{min-height:100vh;position:relative;display:grid;align-items:center;padding:130px 0 90px;overflow:hidden}
+.home-grid{display:grid;grid-template-columns:1.08fr .92fr;align-items:center;gap:50px;position:relative;z-index:2}
+.home-hero h1{font:700 clamp(48px,6.3vw,86px)/.98 "Space Grotesk";letter-spacing:-4px}
+.hero-name{display:inline-block;color:var(--text);font-size:1.12em;letter-spacing:-5px;margin-bottom:5px}
+.home-role{font:600 21px "Space Grotesk";margin:26px 0 12px;color:#d9dbe0}
+body.light .home-role{color:#363941}
+.home-description{max-width:610px;color:var(--muted);font-size:16px}
+.hero-actions{display:flex;gap:12px;margin:30px 0}
+.hero-socials{display:flex;align-items:center;gap:14px;color:var(--muted)}
+.hero-socials a{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;transition:.25s}
+.hero-socials a:hover{color:var(--accent);border-color:var(--accent);transform:translateY(-2px)}
+.social-line{width:45px;height:1px;background:var(--line)}
+.hero-socials small{font-size:11px}
+.brand-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:24px}
+.brand-item{display:inline-flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid var(--line);background:rgba(255,255,255,.02);border-radius:8px;color:var(--muted);font-size:10px;transition:.25s}
+.brand-item:hover{border-color:var(--accent);color:var(--text);transform:translateY(-2px)}
+.brand-item img{width:20px;height:20px;object-fit:contain;border-radius:4px;background:#fff;padding:2px}
+.brand-monogram{width:20px;height:20px;display:grid;place-items:center;border-radius:4px;background:var(--accent);color:#0a0c08;font:700 8px "Space Grotesk"}
+
+.visual-frame{width:min(470px,100%);aspect-ratio:4/5;position:relative;border:1px solid var(--line);background:var(--surface);box-shadow:var(--shadow);overflow:hidden}
+.photo-carousel{position:absolute;inset:0;overflow:hidden;background:#0b0d11}
+.photo-slides{width:100%;height:100%;position:relative}
+.photo-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transform:scale(1.035);transition:opacity .55s ease,transform .75s ease,visibility .55s;background:#0b0d11}
+.photo-slide.active{opacity:1;visibility:visible;transform:scale(1)}
+.photo-slide img{width:100%;height:100%;display:block;object-fit:cover;object-position:center}
+.photo-slide::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.04),rgba(0,0,0,.18) 55%,rgba(0,0,0,.3));pointer-events:none}
+.home-caption{position:absolute;left:20px;bottom:18px;z-index:3;padding:7px 10px;border:1px solid rgba(255,255,255,.13);background:rgba(8,9,12,.58);backdrop-filter:blur(9px);color:#e4e7ed;border-radius:6px;font-size:9px;letter-spacing:1.2px}
+
+.cards-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.mini-card{padding:28px;background:var(--surface);border:1px solid var(--line);position:relative;transition:.35s}
+.mini-card:hover{transform:translateY(-6px);border-color:rgba(199,255,67,.35)}
+.mini-card span{position:absolute;right:20px;top:18px;color:#666a74;font:600 11px "Space Grotesk"}
+.mini-card i{font-size:20px;color:var(--accent);margin-bottom:28px}
+.mini-card h3{font:600 18px "Space Grotesk";margin-bottom:7px}
+.mini-card p{font-size:12px;color:var(--muted)}
+
+.split{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+.big-copy{font:500 28px/1.35 "Space Grotesk";margin-bottom:24px}
+.copy p{color:var(--muted);max-width:600px}
+.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.stat{background:var(--surface);padding:28px}
+.stat strong{display:block;font:700 40px "Space Grotesk";color:var(--accent)}
+.stat span{color:var(--muted);font-size:12px}
+
+.skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.skill{background:var(--surface);padding:25px;display:grid;grid-template-columns:auto 1fr auto;gap:17px;align-items:center;transition:.25s}
+.skill:hover{background:var(--surface2)}
+.skill-icon{width:45px;height:45px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;font-size:21px;color:var(--accent)}
+.skill h3{font:600 16px "Space Grotesk"}
+.skill p{font-size:11px;color:var(--muted)}
+.skill strong{font:600 11px "Space Grotesk";color:var(--muted)}
+.skill-note{margin-top:22px;color:var(--muted);font-size:12px}
+
+.project-feature{display:grid;grid-template-columns:1.35fr .65fr;gap:0;background:var(--surface);border:1px solid var(--line);overflow:hidden}
+.project-art{min-height:480px;position:relative;background:radial-gradient(circle at 50% 50%,rgba(199,255,67,.09),transparent 55%),#0d0f13;display:grid;place-items:center;padding:45px}
+.art-window{width:100%;box-shadow:0 30px 70px #0008;border:1px solid #ffffff14;background:#12151b;transform:perspective(900px) rotateY(-8deg) rotateX(3deg);transition:.5s}
+.project-art:hover .art-window{transform:perspective(900px) rotateY(0) rotateX(0) translateY(-5px)}
+.window-bar{height:36px;border-bottom:1px solid #ffffff10;display:flex;align-items:center;gap:5px;padding:0 12px;color:#737985;font-size:8px}
+.window-bar span{width:6px;height:6px;border-radius:50%;background:#555}
+.window-bar b{margin-left:auto;font:600 8px "Space Grotesk";letter-spacing:1px}
+.dashboard{display:grid;grid-template-columns:52px 1fr;height:280px}
+.dashboard aside{border-right:1px solid #ffffff0d;display:flex;flex-direction:column;align-items:center;padding:17px 0;gap:22px}
+.dashboard aside strong{color:var(--accent);font:700 18px "Space Grotesk"}
+.dashboard aside i{width:14px;height:14px;border:1px solid #ffffff1a;border-radius:4px}
+.dash-main{padding:30px}
+.dash-main small{font-size:7px;color:#737985;letter-spacing:1.5px}
+.dash-main h3{font:600 24px "Space Grotesk";margin:4px 0 20px}
+.dash-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.dash-cards div{height:55px;background:linear-gradient(135deg,#1c2028,#15181e);border:1px solid #ffffff0b}
+.dash-chart{height:95px;margin-top:12px;border:1px solid #ffffff0b;display:flex;align-items:end;justify-content:space-around;padding:14px}
+.dash-chart span{width:9%;background:var(--accent);opacity:.65;border-radius:3px 3px 0 0}
+.dash-chart span:nth-child(1){height:35%}.dash-chart span:nth-child(2){height:52%}.dash-chart span:nth-child(3){height:44%}.dash-chart span:nth-child(4){height:75%}.dash-chart span:nth-child(5){height:60%}.dash-chart span:nth-child(6){height:90%}.dash-chart span:nth-child(7){height:72%}
+.project-index{position:absolute;left:25px;top:22px;color:var(--accent);font:700 12px "Space Grotesk"}
+.project-info{padding:55px 45px;display:flex;flex-direction:column;justify-content:center}
+.project-type{color:var(--accent);font-size:10px;letter-spacing:2px;font-weight:700}
+.project-info h3{font:700 39px "Space Grotesk";margin:12px 0}
+.project-info>p:not(.project-type){color:var(--muted);font-size:14px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin:24px 0}
+.tags span{border:1px solid var(--line);padding:6px 9px;font-size:9px;color:var(--muted)}
+.project-link{font-size:12px;font-weight:700;display:inline-flex;gap:9px;align-items:center}
+.project-link i{color:var(--accent)}
+
+.timeline{max-width:900px;margin:auto;border-left:1px solid var(--line)}
+.timeline-item{display:grid;grid-template-columns:125px 20px 1fr;gap:20px;padding:0 0 65px;position:relative}
+.timeline-item:last-child{padding-bottom:0}
+.time{font:600 10px "Space Grotesk";color:var(--muted);letter-spacing:1px;text-align:right}
+.timeline-dot{width:9px;height:9px;background:var(--accent);border-radius:50%;box-shadow:0 0 0 6px var(--bg);margin-top:5px}
+.timeline-item h3{font:600 21px "Space Grotesk";margin-bottom:8px}
+.timeline-item>div:last-child>p:last-child{font-size:13px;color:var(--muted);max-width:590px}
+
+.contact-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:65px}
+.contact-card{background:var(--surface);border:1px solid var(--line);padding:35px}
+.contact-card h3{font:600 21px "Space Grotesk";margin-bottom:16px}
+.contact-card p{color:var(--muted);font-size:13px}
+.contact-list{display:grid;gap:16px;margin-top:26px}
+.contact-item{display:flex;gap:13px;align-items:flex-start}
+.contact-item i{color:var(--accent);margin-top:3px}
+.contact-item b{font:600 12px "Space Grotesk";display:block;margin-bottom:3px}
+.contact-item span{font-size:12px;color:var(--muted)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+.field label{font-size:10px;letter-spacing:1.4px;color:var(--muted);text-transform:uppercase}
+.field input,.field textarea{width:100%;background:var(--bg);color:var(--text);border:1px solid var(--line);padding:13px 14px;border-radius:7px;outline:none}
+.field input:focus,.field textarea:focus{border-color:var(--accent)}
+.field textarea{min-height:150px;resize:vertical}
+.form-note{margin-top:12px;color:var(--muted);font-size:10px}
+
+footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-size:10px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+
+.reveal{opacity:0;transform:translateY(25px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-menu{position:fixed;top:82px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--line);display:none;flex-direction:column;padding:25px 24px;gap:20px}
+  .nav-menu.open{display:flex}
+  .menu-btn{display:block}.nav-cta{display:none}
+  .home-grid,.split,.project-feature,.contact-layout{grid-template-columns:1fr}
+  .home-hero{padding-top:125px}
+  .hero-visual{margin-top:25px}
+  .visual-frame{max-width:440px}
+  .section-head{align-items:start;flex-direction:column;gap:20px}
+  .project-art{min-height:390px}
+  .project-info{padding:40px}
+}
+@media(max-width:600px){
+  .container{width:min(100% - 30px,1180px)}
+  .navbar{height:72px}.nav-menu{top:72px}
+  .home-hero{padding:110px 0 75px}
+  .home-hero h1{font-size:47px;letter-spacing:-2.5px}
+  .hero-name{letter-spacing:-3px}
+  .home-description{font-size:14px}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{justify-content:center}
+  .hero-socials small,.social-line{display:none}
+  .section,.page-hero{padding:90px 0}
+  .section-head{margin-bottom:40px}
+  .cards-grid,.skill-grid,.form-grid,.stat-grid{grid-template-columns:1fr}
+  .page-title{letter-spacing:-2.5px;font-size:47px}
+  .project-art{padding:20px;min-height:300px}
+  .dashboard{height:210px}.dash-main{padding:20px}.dash-main h3{font-size:18px}
+  .project-info{padding:30px 24px}.project-info h3{font-size:33px}
+  .timeline-item{grid-template-columns:75px 12px 1fr;gap:12px}
+  .timeline-item h3{font-size:17px}
+  .contact-card{padding:25px}
+  .footer-inner{flex-direction:column;align-items:flex-start}
+}
+.icon-fallback{font-size:11px;font-weight:700;letter-spacing:-.3px;color:var(--accent)}
+</style></head>
+<body id="top" data-page="about">
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+  
+<header class="header" id="header">
+  <nav class="navbar container">
+    <a href="index.html" class="logo" aria-label="Bikram Dhamala home"><span>B</span><b>ikram</b><em>.</em></a>
+    <div class="nav-menu" id="navMenu">
+      <a href="index.html" class="nav-link" data-page="home">Home</a>
+      <a href="about.html" class="nav-link" data-page="about">About</a>
+      <a href="skills.html" class="nav-link" data-page="skills">Skills</a>
+      <a href="projects.html" class="nav-link" data-page="projects">Projects</a>
+      <a href="experience.html" class="nav-link" data-page="experience">Experience</a>
+      <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-btn" id="themeBtn" aria-label="Toggle theme"><span class="icon-fallback">◐</span></button>
+      <a href="contact.html" class="nav-cta">Let's Talk <span class="icon-fallback">↗</span></a>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu"><span class="icon-fallback">☰</span></button>
+    </div>
+  </nav>
+</header>
+
+  <main>
+    
+<section class="page-hero">
+  <div class="container page-hero-inner reveal">
+    <p class="eyebrow">01 / ABOUT</p>
+    <h1 class="page-title">Design with purpose.<br><span>Build with intent.</span></h1>
+    <p class="page-lead">A little more about Bikram — the person behind the portfolio, the work and the continuous learning.</p>
+  </div>
+</section>
+<section class="section">
+  <div class="container split">
+    <div class="copy reveal">
+      <p class="big-copy">I'm a BCA student passionate about <strong>UI/UX design</strong>, frontend development and digital products.</p>
+      <p>My approach combines visual thinking with practical technical execution. I care about structure, usability, responsive layouts and the small details that make a product feel polished.</p>
+      <p style="margin-top:20px">Alongside my studies, I work in operations and project environments where communication, organization and execution matter every day. That combination keeps my work grounded in practical problems.</p>
+      <div class="btn-row">
+        <a href="skills.html" class="btn primary">View Skills <span class="icon-fallback">→</span></a>
+        <a href="experience.html" class="btn ghost">View Experience</a>
+      </div>
+    </div>
+    <div class="stat-grid reveal">
+      <div class="stat"><strong>BCA</strong><span>Current academic path</span></div>
+      <div class="stat"><strong>UI/UX</strong><span>Design focus</span></div>
+      <div class="stat"><strong>Web</strong><span>Frontend direction</span></div>
+      <div class="stat"><strong>2026</strong><span>Portfolio edition</span></div>
+    </div>
+  </div>
+</section>
+
+  </main>
+  
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> Bikram Dhamala</span>
+    <span>Designed & built with curiosity.</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+  
+<script>
+const body = document.body;
+const header = document.getElementById("header");
+const menuBtn = document.getElementById("menuBtn");
+const navMenu = document.getElementById("navMenu");
+const themeBtn = document.getElementById("themeBtn");
+
+if (menuBtn && navMenu) {
+  menuBtn.addEventListener("click", () => {
+    navMenu.classList.toggle("open");
+    menuBtn.innerHTML = navMenu.classList.contains("open")
+      ? '<i class="fa-solid fa-xmark"></i>'
+      : '<i class="fa-solid fa-bars"></i>';
+  });
+}
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu?.classList.remove("open");
+    if (menuBtn) menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+  });
+});
+
+window.addEventListener("scroll", () => {
+  header?.classList.toggle("scrolled", window.scrollY > 20);
+});
+
+const savedTheme = localStorage.getItem("bikram-theme");
+if (savedTheme === "light") {
+  body.classList.add("light");
+  if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+}
+themeBtn?.addEventListener("click", () => {
+  body.classList.toggle("light");
+  const light = body.classList.contains("light");
+  localStorage.setItem("bikram-theme", light ? "light" : "dark");
+  themeBtn.innerHTML = light
+    ? '<i class="fa-solid fa-sun"></i>'
+    : '<i class="fa-solid fa-moon"></i>';
+});
+
+document.getElementById("year")?.replaceChildren(String(new Date().getFullYear()));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add("visible");
+  });
+}, {threshold:.12});
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+const page = body.dataset.page;
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.classList.toggle("active", link.dataset.page === page);
+});
+
+/* Home hero photo rotation: every 3 seconds. */
+const photoSlides = [...document.querySelectorAll(".photo-slide")];
+if (photoSlides.length) {
+  let photoIndex = 0;
+  function showPhoto(index) {
+    photoIndex = (index + photoSlides.length) % photoSlides.length;
+    photoSlides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === photoIndex);
+    });
+  }
+  showPhoto(0);
+  setInterval(() => showPhoto(photoIndex + 1), 3000);
+}
+</script></body>
+</html>
