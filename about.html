@@ -6,6 +6,12 @@
   <meta name="description" content="About — Bikram Dhamala">
   <meta name="author" content="Bikram Dhamala">
   <title>About — Bikram Dhamala</title>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About — Bikram Dhamala">
+  <meta property="og:description" content="Learn about Bikram Dhamala, UI/UX designer and frontend developer.">
+  <meta property="og:url" content="https://bikramdhamala.com.np/about.html">
+  <meta property="og:image" content="https://bikramdhamala.com.np/biki.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
   
 <style>
 
@@ -218,7 +224,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 .icon-fallback{font-size:11px;font-weight:700;letter-spacing:-.3px;color:var(--accent)}
-</style></head>
+</style><link rel="stylesheet" href="site-enhancements.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
 <body id="top" data-page="about">
   <div class="noise"></div>
   <div class="cursor-glow"></div>
@@ -229,7 +235,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
     <div class="nav-menu" id="navMenu">
       <a href="index.html" class="nav-link" data-page="home">Home</a>
       <a href="about.html" class="nav-link" data-page="about">About</a>
-      <a href="skills.html" class="nav-link" data-page="skills">Skills</a>
+      <a href="services.html" class="nav-link" data-page="services">Services</a>
       <a href="projects.html" class="nav-link" data-page="projects">Projects</a>
       <a href="experience.html" class="nav-link" data-page="experience">Experience</a>
       <a href="contact.html" class="nav-link" data-page="contact">Contact</a>
@@ -258,7 +264,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
       <p>My approach combines visual thinking with practical technical execution. I care about structure, usability, responsive layouts and the small details that make a product feel polished.</p>
       <p style="margin-top:20px">Alongside my studies, I work in operations and project environments where communication, organization and execution matter every day. That combination keeps my work grounded in practical problems.</p>
       <div class="btn-row">
-        <a href="skills.html" class="btn primary">View Skills <span class="icon-fallback">→</span></a>
+        <a href="services.html" class="btn primary">Explore Services <span class="icon-fallback">→</span></a>
         <a href="experience.html" class="btn ghost">View Experience</a>
       </div>
     </div>
@@ -266,7 +272,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
       <div class="stat"><strong>BCA</strong><span>Current academic path</span></div>
       <div class="stat"><strong>UI/UX</strong><span>Design focus</span></div>
       <div class="stat"><strong>Web</strong><span>Frontend direction</span></div>
-      <div class="stat"><strong>2026</strong><span>Portfolio edition</span></div>
+      <div class="stat"><strong class="stat-role">Operations Officer</strong><span>Aurora Education Foundation</span></div>
     </div>
   </div>
 </section>
@@ -349,5 +355,5 @@ if (photoSlides.length) {
   showPhoto(0);
   setInterval(() => showPhoto(photoIndex + 1), 3000);
 }
-</script></body>
+</script><script src="site-enhancements.js"></script></body>
 </html>
