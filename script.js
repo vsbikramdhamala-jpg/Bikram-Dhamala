@@ -266,7 +266,6 @@ function showToast(message) {
 
 
 /* ================= CONTACT FORM (Web3Forms + SheetDB) ================= */
-
 if (contactForm) {
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
@@ -290,51 +289,50 @@ if (contactForm) {
 
     const formData = new FormData(contactForm);
 
-    // Step 1: Send via Web3Forms
-    fetch("https://api.web3forms.com/submit", {
+    // 1. Send Web3Forms (Email)
+    const web3FormsReq = fetch("https://api.web3forms.com/submit", {
       method: "POST",
       body: formData
-    })
-      .then(async (response) => {
-        const json = await response.json();
+    });
 
-        if (response.status === 200) {
-          // Step 2: Push row to SheetDB / Google Sheets
-          // Keys here match your lowercase Google Sheet column headers
-          const dataToSend = {
-            data: [
-              {
-                "date": new Date().toLocaleString(),
-                "name": name,
-                "email": email,
-                "subject": subject,
-                "message": message
-              }
-            ]
-          };
-
-          return fetch(SHEETDB_API_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify(dataToSend)
-          });
-        } else {
-          throw new Error(json.message || "Form submission failed.");
+    // 2. Send SheetDB (Spreadsheet)
+    const sheetData = {
+      data: [
+        {
+          date: new Date().toLocaleString(),
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
         }
-      })
-      .then((sheetResponse) => {
-        if (sheetResponse && sheetResponse.ok) {
+      ]
+    };
+
+    const sheetDbReq = fetch(SHEETDB_API_URL, {
+      method: "POST",
+      headers: {
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(sheetData)
+    });
+
+    // Run both requests together
+    Promise.all([web3FormsReq, sheetDbReq])
+      .then(async ([web3Res, sheetRes]) => {
+        const sheetJson = await sheetRes.json();
+        console.log("SheetDB Response:", sheetRes.status, sheetJson);
+
+        if (sheetRes.ok) {
           showToast("Message sent and saved successfully!");
           contactForm.reset();
         } else {
-          showToast("Message sent to email, but failed to record in spreadsheet.");
+          showToast("Sent email, but failed to save to spreadsheet.");
         }
       })
       .catch((error) => {
-        console.error("Contact Form Error:", error);
-        showToast("Something went wrong. Please try again.");
+        console.error("Submission Error:", error);
+        showToast("Something went wrong. Check browser console.");
       });
   });
 }
