@@ -7,7 +7,7 @@
 /* ================= CONFIGURATION ================= */
 
 // Replace this URL with your actual SheetDB API endpoint (e.g., https://sheetdb.io/api/v1/abcd1234efgh)
-const SHEETDB_API_URL = "YOUR_SHEETDB_API_URL";
+const SHEETDB_API_URL = "https://sheetdb.io/api/v1/7jmu532s4431w";
 
 
 /* ================= ELEMENTS ================= */
