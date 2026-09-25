@@ -6,8 +6,11 @@
 
 /* ================= CONFIGURATION ================= */
 
-// Replace this URL with your actual SheetDB API endpoint (e.g., https://sheetdb.io/api/v1/abcd1234efgh)
+// SheetDB API Endpoint
 const SHEETDB_API_URL = "https://sheetdb.io/api/v1/7jmu532s4431w";
+
+// WhatsApp Destination Number (Full international format without + or spaces)
+const WHATSAPP_NUMBER = "9779767486348";
 
 
 /* ================= ELEMENTS ================= */
@@ -265,11 +268,13 @@ function showToast(message) {
 }
 
 
-/* ================= CONTACT FORM (Web3Forms + SheetDB) ================= */
+/* ================= CONTACT FORM (SheetDB + WhatsApp Redirect) ================= */
+
 if (contactForm) {
   contactForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
+    // Retrieve form field values
     const nameInput = document.getElementById("name") || contactForm.querySelector('[name="Name"]');
     const emailInput = document.getElementById("email") || contactForm.querySelector('[name="Email"]');
     const subjectInput = document.getElementById("subject") || contactForm.querySelector('[name="Subject"]');
@@ -285,17 +290,9 @@ if (contactForm) {
       return;
     }
 
-    showToast("Sending message...");
+    showToast("Saving & redirecting to WhatsApp...");
 
-    const formData = new FormData(contactForm);
-
-    // 1. Send Web3Forms (Email)
-    const web3FormsReq = fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData
-    });
-
-    // 2. Send SheetDB (Spreadsheet)
+    // Prepare row payload for SheetDB
     const sheetData = {
       data: [
         {
@@ -308,34 +305,40 @@ if (contactForm) {
       ]
     };
 
-    const sheetDbReq = fetch(SHEETDB_API_URL, {
+    // Save to Google Sheet via SheetDB, then trigger WhatsApp redirect
+    fetch(SHEETDB_API_URL, {
       method: "POST",
       headers: {
         "Accept": "application/json",
         "Content-Type": "application/json"
       },
       body: JSON.stringify(sheetData)
-    });
-
-    // Run both requests together
-    Promise.all([web3FormsReq, sheetDbReq])
-      .then(async ([web3Res, sheetRes]) => {
-        const sheetJson = await sheetRes.json();
-        console.log("SheetDB Response:", sheetRes.status, sheetJson);
-
-        if (sheetRes.ok) {
-          showToast("Message sent and saved successfully!");
-          contactForm.reset();
-        } else {
-          showToast("Sent email, but failed to save to spreadsheet.");
+    })
+      .then((sheetRes) => {
+        if (!sheetRes.ok) {
+          console.warn("SheetDB recording issue, continuing to WhatsApp...");
         }
       })
       .catch((error) => {
-        console.error("Submission Error:", error);
-        showToast("Something went wrong. Check browser console.");
+        console.error("SheetDB Error:", error);
+      })
+      .finally(() => {
+        // Construct WhatsApp click-to-chat URL
+        const whatsappText = `*New Contact Form Message*%0A%0A` +
+          `*Name:* ${encodeURIComponent(name)}%0A` +
+          `*Email:* ${encodeURIComponent(email)}%0A` +
+          `*Subject:* ${encodeURIComponent(subject)}%0A` +
+          `*Message:* ${encodeURIComponent(message)}`;
+
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
+
+        // Reset inputs and open WhatsApp tab
+        contactForm.reset();
+        window.open(whatsappUrl, "_blank");
       });
   });
 }
+
 
 /* ================= SMOOTH ANCHOR ================= */
 
