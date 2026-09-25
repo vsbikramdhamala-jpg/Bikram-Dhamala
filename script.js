@@ -300,14 +300,15 @@ if (contactForm) {
 
         if (response.status === 200) {
           // Step 2: Push row to SheetDB / Google Sheets
+          // Keys here match your lowercase Google Sheet column headers
           const dataToSend = {
             data: [
               {
-                date: new Date().toLocaleString(),
-                name: name,
-                email: email,
-                subject: subject,
-                message: message
+                "date": new Date().toLocaleString(),
+                "name": name,
+                "email": email,
+                "subject": subject,
+                "message": message
               }
             ]
           };
@@ -337,7 +338,6 @@ if (contactForm) {
       });
   });
 }
-
 
 /* ================= SMOOTH ANCHOR ================= */
 
