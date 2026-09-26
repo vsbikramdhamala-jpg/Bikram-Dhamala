@@ -87,12 +87,19 @@ navLinks.forEach(link => {
 const savedTheme =
     localStorage.getItem("portfolio-theme");
 
-if (savedTheme === "light") {
+if (savedTheme !== "dark") {
 
     body.classList.add("light");
 
     themeBtn.innerHTML =
         '<i class="fa-solid fa-sun"></i>';
+
+} else {
+
+    body.classList.remove("light");
+
+    themeBtn.innerHTML =
+        '<i class="fa-solid fa-moon"></i>';
 
 }
 
@@ -313,20 +320,21 @@ contactForm.addEventListener(
         }
 
 
-        /*
-            This is a frontend-only form.
-
-            To actually send emails, connect this form
-            to Formspree, EmailJS, Firebase or your own backend.
-        */
-
-
-        showToast(
-            "Message submitted successfully!"
+        const formResult = document.getElementById("form-result");
+        const subjectLine = encodeURIComponent(subject);
+        const emailBody = encodeURIComponent(
+            `Name: ${name}\nEmail: ${email}\n\n${message}`
         );
 
+        if (formResult) {
+            formResult.textContent = "Your email app should open with a draft. Press Send there to deliver your message.";
+        }
 
-        contactForm.reset();
+        showToast(
+            "Your email app should open with a draft. Press Send there to deliver your message."
+        );
+
+        window.location.href = `mailto:bikram.official77@gmail.com?subject=${subjectLine}&body=${emailBody}`;
 
     }
 );

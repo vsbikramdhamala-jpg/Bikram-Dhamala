@@ -129,10 +129,15 @@ navLinks.forEach(link => {
 
 const savedTheme = localStorage.getItem("portfolio-theme");
 
-if (savedTheme === "light") {
+if (savedTheme !== "dark") {
   body.classList.add("light");
   if (themeBtn) {
     themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  }
+} else {
+  body.classList.remove("light");
+  if (themeBtn) {
+    themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
   }
 }
 
@@ -339,7 +344,7 @@ if (contactForm) {
       console.error("Submission Error:", error);
       showToast("Something went wrong. Please try again.");
       if (formResult) {
-        formResult.textContent = "Something went wrong. Please try again.";
+        formResult.textContent = "We couldn't submit your message. Please try again or email bikram.official77@gmail.com.";
         formResult.style.color = "#ff6b6b";
       }
     } finally {

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/jpeg" href="/favicon.jpg">
+  <link rel="icon" type="image/jpeg" href="favicon.jpg">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Bikram Dhamala is a UI/UX designer and frontend developer creating clean, intuitive digital experiences.">
@@ -255,8 +255,8 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 .icon-fallback{font-size:11px;font-weight:700;letter-spacing:-.3px;color:var(--accent)}
-</style><link rel="stylesheet" href="site-enhancements.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="icon" href="favicon.jpg" type="image/svg+xml"></head>
-<body id="top" data-page="home">
+</style><link rel="stylesheet" href="site-enhancements.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"></head>
+<body id="top" data-page="home" class="light">
   <div class="noise"></div>
   <div class="cursor-glow"></div>
   
@@ -338,6 +338,27 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   </div>
 </section>
 
+<section class="home-education section" aria-labelledby="home-education-title">
+  <div class="container home-education-inner reveal">
+    <div class="education-mark"><i class="fa-solid fa-graduation-cap" aria-hidden="true"></i></div>
+    <div>
+      <p class="eyebrow">EDUCATION</p>
+      <h2 id="home-education-title">BCA at <span>Vinayak Siddha College</span></h2>
+      <p>Building a foundation in software development at Tribhuvan University.</p>
+    </div>
+    <a class="education-link" href="experience.html">Education &amp; experience <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
+<section class="home-cta section" aria-labelledby="home-cta-title">
+  <div class="container home-cta-inner reveal">
+    <p class="eyebrow">HAVE A PROJECT IN MIND?</p>
+    <h2 id="home-cta-title">Let’s build something meaningful.</h2>
+    <p>Have a digital project, interface idea or collaboration in mind? I’d love to hear about it.</p>
+    <a class="btn home-cta-button" href="contact.html">Let’s Talk <span aria-hidden="true">↗</span></a>
+  </div>
+</section>
+
   </main>
   
 <footer class="home-footer">
@@ -410,15 +431,18 @@ window.addEventListener("scroll", () => {
   header?.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-const savedTheme = localStorage.getItem("bikram-theme");
-if (savedTheme === "light") {
+const savedTheme = localStorage.getItem("portfolio-theme");
+if (savedTheme !== "dark") {
   body.classList.add("light");
   if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+} else {
+  body.classList.remove("light");
+  if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 themeBtn?.addEventListener("click", () => {
   body.classList.toggle("light");
   const light = body.classList.contains("light");
-  localStorage.setItem("bikram-theme", light ? "light" : "dark");
+  localStorage.setItem("portfolio-theme", light ? "light" : "dark");
   themeBtn.innerHTML = light
     ? '<i class="fa-solid fa-sun"></i>'
     : '<i class="fa-solid fa-moon"></i>';

@@ -224,14 +224,14 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 .icon-fallback{font-size:11px;font-weight:700;letter-spacing:-.3px;color:var(--accent)}
-</style><link rel="stylesheet" href="site-enhancements.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
-<body id="top" data-page="projects">
+</style><link rel="stylesheet" href="site-enhancements.css"><link rel="icon" href="favicon.jpg" type="image/jpeg"></head>
+<body id="top" data-page="projects" class="light">
   <div class="noise"></div>
   <div class="cursor-glow"></div>
   
 <header class="header" id="header">
   <nav class="navbar container">
-    <a href="index.html" class="logo" aria-label="Bikram Dhamala home"><span>B</span><b>ikram</b><em>.</em></a>
+    <a href="index.html" class="logo" aria-label="Bikram Dhamala home"><img src="logo.png" alt="Bikram Dhamala" width="150"></a>
     <div class="nav-menu" id="navMenu">
       <a href="index.html" class="nav-link" data-page="home">Home</a>
       <a href="about.html" class="nav-link" data-page="about">About</a>
@@ -258,7 +258,7 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   </div>
 </section>
 <section class="section">
-  <div class="container">
+  <div class="container project-showcase-grid">
     <article class="project-feature reveal">
       <div class="project-art">
         <div class="art-window">
@@ -280,6 +280,19 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
         <p>A classroom management platform concept built to make everyday educator and student workflows more organized and accessible.</p>
         <div class="tags"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Firebase</span></div>
         <a href="https://classroomos.onrender.com/login?callbackUrl=%2F" target="_blank" rel="noopener" class="project-link">View live project <span class="icon-fallback">↗</span></a>
+      </div>
+    </article>
+    <article class="project-feature project-feature-image reveal">
+      <div class="project-art project-art-image">
+        <img class="project-image" src="aurora-education-foundation.jpg" alt="Aurora Education Foundation identity" width="756" height="287">
+        <span class="project-index">02</span>
+      </div>
+      <div class="project-info">
+        <p class="project-type">EDUCATION &amp; COMMUNITY</p>
+        <h3>Aurora Education Foundation</h3>
+        <p>A foundation focused on connecting students with educational opportunities and support.</p>
+        <div class="tags"><span>Education</span><span>Community</span><span>Digital Experience</span></div>
+        <a href="https://vsbikramdhamala-jpg.github.io/AEF/" target="_blank" rel="noopener noreferrer" class="project-link">View the project <span class="icon-fallback">↗</span></a>
       </div>
     </article>
   </div>
@@ -322,15 +335,18 @@ window.addEventListener("scroll", () => {
   header?.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-const savedTheme = localStorage.getItem("bikram-theme");
-if (savedTheme === "light") {
+const savedTheme = localStorage.getItem("portfolio-theme");
+if (savedTheme !== "dark") {
   body.classList.add("light");
   if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+} else {
+  body.classList.remove("light");
+  if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 themeBtn?.addEventListener("click", () => {
   body.classList.toggle("light");
   const light = body.classList.contains("light");
-  localStorage.setItem("bikram-theme", light ? "light" : "dark");
+  localStorage.setItem("portfolio-theme", light ? "light" : "dark");
   themeBtn.innerHTML = light
     ? '<i class="fa-solid fa-sun"></i>'
     : '<i class="fa-solid fa-moon"></i>';

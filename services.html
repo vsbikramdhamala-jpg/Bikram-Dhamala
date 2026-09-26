@@ -224,14 +224,14 @@ footer{border-top:1px solid var(--line);padding:25px 0;color:var(--muted);font-s
   .footer-inner{flex-direction:column;align-items:flex-start}
 }
 .icon-fallback{font-size:11px;font-weight:700;letter-spacing:-.3px;color:var(--accent)}
-</style><link rel="stylesheet" href="site-enhancements.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
-<body id="top" data-page="services">
+</style><link rel="stylesheet" href="site-enhancements.css"><link rel="icon" href="favicon.jpg" type="image/jpeg"></head>
+<body id="top" data-page="services" class="light">
   <div class="noise"></div>
   <div class="cursor-glow"></div>
   
 <header class="header" id="header">
   <nav class="navbar container">
-    <a href="index.html" class="logo" aria-label="Bikram Dhamala home"><span>B</span><b>ikram</b><em>.</em></a>
+    <a href="index.html" class="logo" aria-label="Bikram Dhamala home"><img src="logo.png" alt="Bikram Dhamala" width="150"></a>
     <div class="nav-menu" id="navMenu">
       <a href="index.html" class="nav-link" data-page="home">Home</a>
       <a href="about.html" class="nav-link" data-page="about">About</a>
@@ -306,15 +306,18 @@ window.addEventListener("scroll", () => {
   header?.classList.toggle("scrolled", window.scrollY > 20);
 });
 
-const savedTheme = localStorage.getItem("bikram-theme");
-if (savedTheme === "light") {
+const savedTheme = localStorage.getItem("portfolio-theme");
+if (savedTheme !== "dark") {
   body.classList.add("light");
   if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-sun"></i>';
+} else {
+  body.classList.remove("light");
+  if (themeBtn) themeBtn.innerHTML = '<i class="fa-solid fa-moon"></i>';
 }
 themeBtn?.addEventListener("click", () => {
   body.classList.toggle("light");
   const light = body.classList.contains("light");
-  localStorage.setItem("bikram-theme", light ? "light" : "dark");
+  localStorage.setItem("portfolio-theme", light ? "light" : "dark");
   themeBtn.innerHTML = light
     ? '<i class="fa-solid fa-sun"></i>'
     : '<i class="fa-solid fa-moon"></i>';
