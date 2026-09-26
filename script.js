@@ -268,7 +268,7 @@ function showToast(message) {
 }
 
 
-/* ================= CONTACT FORM (SheetDB + WhatsApp Redirect) ================= */
+/* ================= CONTACT FORM (SheetDB + Direct WhatsApp Redirect) ================= */
 
 if (contactForm) {
   contactForm.addEventListener("submit", function (event) {
@@ -292,6 +292,15 @@ if (contactForm) {
 
     showToast("Saving & redirecting to WhatsApp...");
 
+    // Construct WhatsApp click-to-chat URL
+    const whatsappText = `*New Contact Form Message*%0A%0A` +
+      `*Name:* ${encodeURIComponent(name)}%0A` +
+      `*Email:* ${encodeURIComponent(email)}%0A` +
+      `*Subject:* ${encodeURIComponent(subject)}%0A` +
+      `*Message:* ${encodeURIComponent(message)}`;
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
+
     // Prepare row payload for SheetDB
     const sheetData = {
       data: [
@@ -305,7 +314,7 @@ if (contactForm) {
       ]
     };
 
-    // Save to Google Sheet via SheetDB, then trigger WhatsApp redirect
+    // 1. Dispatch data to SheetDB in background
     fetch(SHEETDB_API_URL, {
       method: "POST",
       headers: {
@@ -314,28 +323,11 @@ if (contactForm) {
       },
       body: JSON.stringify(sheetData)
     })
-      .then((sheetRes) => {
-        if (!sheetRes.ok) {
-          console.warn("SheetDB recording issue, continuing to WhatsApp...");
-        }
-      })
-      .catch((error) => {
-        console.error("SheetDB Error:", error);
-      })
-      .finally(() => {
-        // Construct WhatsApp click-to-chat URL
-        const whatsappText = `*New Contact Form Message*%0A%0A` +
-          `*Name:* ${encodeURIComponent(name)}%0A` +
-          `*Email:* ${encodeURIComponent(email)}%0A` +
-          `*Subject:* ${encodeURIComponent(subject)}%0A` +
-          `*Message:* ${encodeURIComponent(message)}`;
+      .catch((error) => console.error("SheetDB Error:", error));
 
-        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
-
-        // Reset inputs and open WhatsApp tab
-        contactForm.reset();
-        window.open(whatsappUrl, "_blank");
-      });
+    // 2. Direct browser redirection prevents popup blockers
+    contactForm.reset();
+    window.location.href = whatsappUrl;
   });
 }
 
