@@ -9,9 +9,6 @@
 // SheetDB API Endpoint
 const SHEETDB_API_URL = "https://sheetdb.io/api/v1/7jmu532s4431w";
 
-// WhatsApp Destination Number (Full international format without + or spaces)
-const WHATSAPP_NUMBER = "9779767486348";
-
 
 /* ================= ELEMENTS ================= */
 
@@ -268,11 +265,14 @@ function showToast(message) {
 }
 
 
-/* ================= CONTACT FORM (SheetDB + Direct WhatsApp Redirect) ================= */
+/* ================= CONTACT FORM (Direct SheetDB Submission) ================= */
 
 if (contactForm) {
-  contactForm.addEventListener("submit", function (event) {
+  contactForm.addEventListener("submit", async function (event) {
     event.preventDefault();
+
+    const submitBtn = document.getElementById("submit-btn") || contactForm.querySelector('button[type="submit"]');
+    const formResult = document.getElementById("form-result");
 
     // Retrieve form field values
     const nameInput = document.getElementById("name") || contactForm.querySelector('[name="Name"]');
@@ -290,44 +290,62 @@ if (contactForm) {
       return;
     }
 
-    showToast("Saving & redirecting to WhatsApp...");
-
-    // Construct WhatsApp click-to-chat URL
-    const whatsappText = `*New Contact Form Message*%0A%0A` +
-      `*Name:* ${encodeURIComponent(name)}%0A` +
-      `*Email:* ${encodeURIComponent(email)}%0A` +
-      `*Subject:* ${encodeURIComponent(subject)}%0A` +
-      `*Message:* ${encodeURIComponent(message)}`;
-
-    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappText}`;
+    // UI Loading State
+    if (submitBtn) {
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+    }
+    if (formResult) {
+      formResult.textContent = "Submitting message...";
+      formResult.style.color = "var(--muted)";
+    }
 
     // Prepare row payload for SheetDB
     const sheetData = {
       data: [
         {
-          date: new Date().toLocaleString(),
-          name: name,
-          email: email,
-          subject: subject,
-          message: message
+          Date: new Date().toLocaleString(),
+          Name: name,
+          Email: email,
+          Subject: subject,
+          Message: message
         }
       ]
     };
 
-    // 1. Dispatch data to SheetDB in background
-    fetch(SHEETDB_API_URL, {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(sheetData)
-    })
-      .catch((error) => console.error("SheetDB Error:", error));
+    try {
+      const response = await fetch(SHEETDB_API_URL, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(sheetData)
+      });
 
-    // 2. Direct browser redirection prevents popup blockers
-    contactForm.reset();
-    window.location.href = whatsappUrl;
+      if (response.ok) {
+        showToast("Thank you! Your message has been sent successfully.");
+        if (formResult) {
+          formResult.textContent = "Thank you! Your message has been sent successfully.";
+          formResult.style.color = "var(--accent)";
+        }
+        contactForm.reset();
+      } else {
+        throw new Error("Failed to submit to SheetDB.");
+      }
+    } catch (error) {
+      console.error("Submission Error:", error);
+      showToast("Something went wrong. Please try again.");
+      if (formResult) {
+        formResult.textContent = "Something went wrong. Please try again.";
+        formResult.style.color = "#ff6b6b";
+      }
+    } finally {
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = 'Send Message <span class="icon-fallback">➤</span>';
+      }
+    }
   });
 }
 
