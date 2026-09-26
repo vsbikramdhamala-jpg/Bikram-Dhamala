@@ -300,15 +300,15 @@ if (contactForm) {
       formResult.style.color = "var(--muted)";
     }
 
-    // Prepare row payload for SheetDB
+    // Lowercase keys matching Google Sheet columns
     const sheetData = {
       data: [
         {
-          Date: new Date().toLocaleString(),
-          Name: name,
-          Email: email,
-          Subject: subject,
-          Message: message
+          date: new Date().toLocaleString(),
+          name: name,
+          email: email,
+          subject: subject,
+          message: message
         }
       ]
     };
@@ -331,6 +331,8 @@ if (contactForm) {
         }
         contactForm.reset();
       } else {
+        const errData = await response.json();
+        console.error("SheetDB API Error Response:", errData);
         throw new Error("Failed to submit to SheetDB.");
       }
     } catch (error) {
@@ -348,7 +350,6 @@ if (contactForm) {
     }
   });
 }
-
 
 /* ================= SMOOTH ANCHOR ================= */
 
